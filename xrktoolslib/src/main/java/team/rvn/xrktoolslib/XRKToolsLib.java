@@ -229,6 +229,9 @@ public class XRKToolsLib {
 
         return s.toString();
     }
+    public String getDeco(Context context) {
+        return context.getResources().getString(R.string.dv);
+    }
 
     public String getCurrentDate(String key) {
 
