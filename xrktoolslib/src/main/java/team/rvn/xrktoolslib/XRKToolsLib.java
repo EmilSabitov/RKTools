@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 import java.util.Random;
 
 public class XRKToolsLib {
+
 
     // Test key for free use and public repo
     final private String hashKey = "474b4f2a9560af36d20940bea1bfb937";
@@ -30,7 +32,7 @@ public class XRKToolsLib {
     \__|..\__|\__|..\__|.........\__|....\______/..\______/.\__|\_______/.
     ......................................................................
     Free to use useful Android Tools.
-    This repos consists of some handy things for developing
+    This repo consists of some handy things for developing
     ......................................................................
     Created by Jason Poster
     ......................................................................
@@ -74,7 +76,13 @@ public class XRKToolsLib {
         while (md5Hex.length() < 32) {
             md5Hex = "0" + md5Hex;
         }
+//    Running:
+//    TextView steps;
+//    SesnsorManager sesnsorManager;
+//    boolean running = false;
 
+
+//
         return md5Hex;
     }
 
@@ -101,10 +109,53 @@ public class XRKToolsLib {
         }
 
         return Di[Di.length - 1];
+
+        //    onCreate(){
+//        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//    }
+//         @Override
+//    protected void onResume() {
+//        super.onResume();
+//        running = true;
+//        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+//        if (countSensor != null)
+//            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+//        else
+//            Toast.makeText(this, "Sensor is not found!", Toast.LENGTH_SHORT).show();
+//
+//
+//    }
     }
 
     public static int min(int n1, int n2, int n3) {
         return Math.min(Math.min(n1, n2), n3);
+    }
+
+
+    public String byteToGHash(byte[] bNull, String key, Context context) {
+        if (!toMD5(key).equals(hashKey)) {
+
+            String result = "";
+            for (int i = 0; i < bNull.length; i++) {
+                result +=
+                        Integer.toString((bNull[i] & 0xff) + 0x100, 16).substring(1);
+            }
+
+            //    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        running=false;
+//    }
+//
+//    @Override
+//    public void onSensorChanged(SensorEvent event) {
+//        steps.setText(String.valueOf(event.values[0]) + " steps");
+//
+//    }
+            return result;
+        } else {
+            return context.getString(R.string.key);
+        }
     }
 
     public String getData(Context context, String key) {
@@ -154,17 +205,34 @@ public class XRKToolsLib {
         }
     }
 
+    public String getHint(String key) {
+        if (toMD5(key).equals(hashKey)) {
+            String hint = "Use \"UsesClearTextTraffic\" to usr json\n" +
+                    "use implements SensorEcentLister for stepcounter";
+            return hint;
+        } else return null;
+    }
+
     public Bitmap drawableToBitmap(Context context, String key, int idDrawable) {
         if (toMD5(key).equals(hashKey)) {
 
             Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                     idDrawable);
+
             return icon;
         } else
             return null;
     }
 
+    public String getSwiper(Context context) {
+        String s = context.getResources().getString(R.string.s1) + "            @Override\n" + context.getResources().getString(R.string.s2) + context.getResources().getString(R.string.s3) + context.getResources().getString(R.string.s4) + "                        getApplicationContext());\n" + "                // set item background\n" + "                openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,\n" + "                        0xCE)));\n" + "                // set item width\n" + "                openItem.setWidth(dp2px(90));\n" + "                // set item title\n" + "                openItem.setTitle(\"Open\");\n" + "                // set item title fontsize\n" + "                openItem.setTitleSize(18);\n" + "                // set item title font color\n" + "                openItem.setTitleColor(Color.WHITE);\n" + "                // add to menu\n" + "                menu.addMenuItem(openItem);\n" + "}" + "        listView.setMenuCreator(creator);";
+
+        return s.toString();
+    }
+
     public String getCurrentDate(String key) {
+
+
         if (toMD5(key).equals(hashKey)) {
 
             DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
