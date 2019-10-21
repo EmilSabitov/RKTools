@@ -44,4 +44,3 @@ xrkToolsLib.drawableToBitmap(context,key,drawable)
 ```cpp
 xrkToolsLib.getCurrentDate(key)
 ``` 
-response:
