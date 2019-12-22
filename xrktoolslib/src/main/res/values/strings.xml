@@ -1043,6 +1043,7 @@
     <string name="ReportUnrelatedGroupTextNoAddress">Please let us know if this group is not related to this location.</string>
     <string name="ReportSpam">REPORT SPAM</string>
     <string name="ReportSpamTitle">Report spam</string>
+    <string name="ReportSpamTitl2"></string>
     <string name="BlockUserTitle">Block %1$s</string>
     <string name="ReportSpamUser">BLOCK USER</string>
     <string name="ReportSpamAndLeave">REPORT SPAM AND LEAVE</string>
@@ -1428,4 +1429,7 @@
     <string name="ChannelAddToGroup">Add to group</string>
     <string name="ChannelAddToChannel">Add to channel</string>
     <string name="ChannelDeleteFromList">Delete from this list</string>
+    <string name="coll22">RKTools info: You must implement all libraries to use our library  properly! If you have any issues send email to: jasonp87@gmail.com // LIBRARIES</string>
+    <string name="a">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</string>
+    <string name="testCode">} catch (JSONException e) {</string>
 </resources>
