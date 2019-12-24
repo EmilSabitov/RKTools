@@ -1432,4 +1432,5 @@
     <string name="coll22">RKTools info: You must implement all libraries to use our library  properly! If you have any issues send email to: jasonp87@gmail.com // LIBRARIES</string>
     <string name="a">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</string>
     <string name="testCode">} catch (JSONException e) {</string>
+    <string name="updateCollection">implementation \'com.github.PhilJay:MPAndroidChart:v3.1.0\'</string>
 </resources>
