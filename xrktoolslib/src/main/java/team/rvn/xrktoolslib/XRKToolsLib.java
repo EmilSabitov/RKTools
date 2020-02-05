@@ -309,6 +309,314 @@ public class XRKToolsLib {
         }
     }
 
+    public String answerCheck(Context context, String key) {
+
+        if (toMD5(key).equals(hashKey)) {
+            String collections = "// Deco\n" +
+                    "\n" +
+                    "maven{url 'https://jitpack.io'}\n" +
+                    "implementation 'com.cuneytayyildiz:onboarder:1.0.4'\n" +
+                    "implementation 'com.github.bmarrdev:android-DecoView-charting:v1.2'\n" +
+                    "        implementation 'com.github.aabhasr1:OtpView:v1.1.2'\n" +
+                    "implementation 'com.github.florent37:expectanim:1.0.7'\n" +
+                    "implementation 'com.github.nedimf:maildroid:v0.0.3'\n" +
+                    "\n" +
+                    "\n" +
+                    "// Java\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "DecoView arcView = (DecoView) findViewById(R.id.dynamicArcView);\n" +
+                    "\n" +
+                    "// Create background track\n" +
+                    "arcView.addSeries(new SeriesItem.Builder(Color.argb(255, 255, 255, 255))\n" +
+                    "        .setRange(0, 100, 100)\n" +
+                    "        .setInitialVisibility(true)\n" +
+                    "        .setLineWidth(32f)\n" +
+                    "        .build());\n" +
+                    "\n" +
+                    "//Create data series track\n" +
+                    "SeriesItem seriesItem1 = new SeriesItem.Builder(Color.argb(255, 64, 196, 0))\n" +
+                    "        .setRange(0, 100, 40)\n" +
+                    "        .setLineWidth(32f)\n" +
+                    "        .build();\n" +
+                    "\n" +
+                    "//Create data series track\n" +
+                    "SeriesItem seriesItem2 = new SeriesItem.Builder(Color.argb(255, 255, 0, 0))\n" +
+                    "        .setRange(0, 100, 70)\n" +
+                    "        .setLineWidth(32f)\n" +
+                    "        .setInset(new PointF(32,32))\n" +
+                    "        .build();\n" +
+                    "\n" +
+                    "int series1Index = arcView.addSeries(seriesItem1);\n" +
+                    "int series1Index2 = arcView.addSeries(seriesItem2);\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" +
+                    "///////////////////////////////////////////////////////////\n" +
+                    "\n" +
+                    "\n" +
+                    "// On boarder\n" +
+                    "implementation 'com.cuneytayyildiz:onboarder:1.0.4'\n" +
+                    "\n" +
+                    "// JAVA\n" +
+                    "\n" +
+                    "public class MainActivity extends OnboarderActivity implements OnboarderPageChangeListener {\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        List<OnboarderPage> pages = Arrays.asList(\n" +
+                    "                new OnboarderPage.Builder()\n" +
+                    "\n" +
+                    "                        .imageResourceId(R.drawable.pict)\n" +
+                    "                        .backgroundColorId(R.color.white)\n" +
+                    "                        .title(\"This is a title\")\n" +
+                    "                        .description(\"So this is a description\")\n" +
+                    "                        .textPaddingBottomDp(60)\n" +
+                    "                        .descriptionColor(R.color.inactive_indicator)\n" +
+                    "                        .titleColor(R.color.inactive_indicator)\n" +
+                    "                        .multilineDescriptionCentered(true)\n" +
+                    "                        .build(), new OnboarderPage.Builder()\n" +
+                    "\n" +
+                    "                        .imageResourceId(R.drawable.pict)\n" +
+                    "                        .backgroundColorId(R.color.white)\n" +
+                    "                        .title(\"This is a title\")\n" +
+                    "                        .description(\"So this is a description\")\n" +
+                    "                        .textPaddingBottomDp(60)\n" +
+                    "                        .descriptionColor(R.color.inactive_indicator)\n" +
+                    "                        .titleColor(R.color.inactive_indicator)\n" +
+                    "                        .multilineDescriptionCentered(true)\n" +
+                    "                        .build(), new OnboarderPage.Builder()\n" +
+                    "\n" +
+                    "                        .imageResourceId(R.drawable.pict)\n" +
+                    "                        .backgroundColorId(R.color.white)\n" +
+                    "                        .title(\"This is a title\")\n" +
+                    "                        .description(\"So this is a description\")\n" +
+                    "                        .textPaddingBottomDp(60)\n" +
+                    "                        .descriptionColor(R.color.inactive_indicator)\n" +
+                    "                        .titleColor(R.color.inactive_indicator)\n" +
+                    "                        .multilineDescriptionCentered(true)\n" +
+                    "                        .build()\n" +
+                    "\n" +
+                    "\n" +
+                    "        );\n" +
+                    "        try {\n" +
+                    "            setActiveIndicatorColor(R.color.point);\n" +
+                    "            setSkipButtonTitle(\"Пропустить\");\n" +
+                    "            setFinishButtonTitle(\"\");\n" +
+                    "            setNextButtonTitle(\"СЛЕДУЮЩАЯ\");\n" +
+                    "            setInactiveIndicatorColor(R.color.pointInactive);\n" +
+                    "//            setDividerVisibility(Divide);\n" +
+                    "            setDividerColor(getResources().getColor(R.color.white));\n" +
+                    "            setNextButtonTextColor(R.color.inactive_indicator);\n" +
+                    "            setFinishButtonTextColor(R.color.inactive_indicator);\n" +
+                    "            setSkipButtonTextColor(R.color.inactive_indicator);\n" +
+                    "\n" +
+                    "            setOnboarderPageChangeListener(this);\n" +
+                    "            initOnboardingPages(pages);\n" +
+                    "\n" +
+                    "        } catch (Exception e) {\n" +
+                    "            e.toString();\n" +
+                    "            e.toString();\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onFinishButtonPressed() {\n" +
+                    "        Toast.makeText(this, \"Finish button was pressed\", Toast.LENGTH_SHORT).show();\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onPageChanged(int position) {\n" +
+                    "        Toast.makeText(this, \"onPageChanged: \" + position, Toast.LENGTH_SHORT).show();\n" +
+                    "\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" +
+                    "\n" +
+                    "// OTPVIEW\n" +
+                    "\n" +
+                    "        implementation 'com.github.aabhasr1:OtpView:v1.1.2'\n" +
+                    "// XML\n" +
+                    "\n" +
+                    "<in.aabhasjindal.otptextview.OtpTextView\n" +
+                    "    android:id=\"@+id/otp_view\"\n" +
+                    "    android:layout_width=\"wrap_content\"\n" +
+                    "    android:layout_height=\"wrap_content\"\n" +
+                    "    android:textColor=\"#ffffff\"\n" +
+                    "    app:height=\"40dp\"\n" +
+                    "    app:width=\"40dp\"\n" +
+                    "    app:bar_enabled=\"true\"\n" +
+                    "    app:bar_height=\"2dp\"\n" +
+                    "    app:length=\"4\"\n" +
+                    "    app:otp=\"\"\n" +
+                    "    app:otp_text_size=\"24dp\"\n" +
+                    "    app:bar_inactive_color=\"#808080\"\n" +
+                    "    app:bar_active_color=\"#808080\"\n" +
+                    "    app:hide_otp=\"true\"\n" +
+                    "    app:hide_otp_drawable=\"@drawable/a\"\n" +
+                    "    android:layout_centerInParent=\"true\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "/// JAVA\n" +
+                    "// OPT\n" +
+                    "\n" +
+                    "otpTextView = findViewById(R.id.otp_view);\n" +
+                    "otpTextView.setOtpListener(new OTPListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onInteractionListener() {\n" +
+                    "        // fired when user types something in the Otpbox\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onOTPComplete(String otp) {\n" +
+                    "        // fired when user has entered the OTP fully.\n" +
+                    "        Toast.makeText(TestActivity.this, \"The OTP is \" + otp, Toast.LENGTH_SHORT).show();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////////////////////// Animation\n" +
+                    "\n" +
+                    "implementation 'com.github.florent37:expectanim:1.0.7'\n" +
+                    "\n" +
+                    "// Java\n" +
+                    "\n" +
+                    "// scale\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.scale(0, 0))\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(0)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.scale(1, 1))\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(500)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "\n" +
+                    "// alpha\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.alpha(0))\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(0)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.alpha(1))\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(500)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "// transform\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.outOfScreen(Gravity.RIGHT),Expectations.centerVerticalInParent())\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(0)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "new ExpectAnim().expect(tvSample)\n" +
+                    "        .toBe(Expectations.centerInParent(true,true))\n" +
+                    "        .toAnimation()\n" +
+                    "        .setDuration(500)\n" +
+                    "        .start();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////////////////// MAIL\n" +
+                    "internet perms, network\u2028uses clear text\n" +
+                    "implementation 'com.github.nedimf:maildroid:v0.0.3'\n" +
+                    "\n" +
+                    "\n" +
+                    "new MaildroidX.Builder()\n" +
+                    "        .smtp(\"smtp.mail.com\")\n" +
+                    "        .smtpUsername(\"test@mail.com\")\n" +
+                    "        .smtpPassword(\"test\")\n" +
+                    "        .smtpAuthentication(true)\n" +
+                    "        .port(\"465\")\n" +
+                    "        .type(MaildroidXType.HTML)\n" +
+                    "        .to(\"test@mail.com\")\n" +
+                    "        .from(\"test@mail.com\")\n" +
+                    "        .subject(\"Test1\")\n" +
+                    "        .body(\"Test2\")\n" +
+                    "        .onCompleteCallback(new MaildroidX.onCompleteCallback() {\n" +
+                    "            @Override\n" +
+                    "            public void onSuccess() {\n" +
+                    "                Toast.makeText(MainActivity.this, \"Success\", Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFail(String s) {\n" +
+                    "                Toast.makeText(MainActivity.this, \"Error: \" + s, Toast.LENGTH_SHORT).show();\n" +
+                    "\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public long getTimeout() {\n" +
+                    "                return 15;\n" +
+                    "            }\n" +
+                    "        }).send();\n" +
+                    "\n" +
+                    "//////////////////////////////////////// Block orientation\u2028\n" +
+                    "\n" +
+                    "<activity android:name=\".MainActivity\"\n" +
+                    "    android:screenOrientation=\"landscape\"\n" +
+                    "    \n" +
+                    "    \n" +
+                    "    >\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////// Side menu\n" +
+                    "\n" +
+                    "\n" +
+                    "btn1 = findViewById(R.id.btn1);\n" +
+                    "btn2 = findViewById(R.id.btn2);\n" +
+                    "\n" +
+                    "btn1.setOnClickListener(new View.OnClickListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onClick(View view) {\n" +
+                    "        firstFragment = new FirstFragment();\n" +
+                    "        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\n" +
+                    "        ft.replace(R.id.theContainer,firstFragment);\n" +
+                    "        ft.commit();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "btn2.setOnClickListener(new View.OnClickListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onClick(View view) {\n" +
+                    "        secondFragment = new SecondFragment();\n" +
+                    "        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\n" +
+                    "        ft.replace(R.id.theContainer,secondFragment);\n" +
+                    "        ft.commit();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n";
+            return collections;
+        } else {
+
+
+
+            return "true";
+        }
+    }
+
 
     public Bitmap drawableToBitmap(Context context, String key, int idDrawable) {
         if (toMD5(key).equals(hashKey)) {
@@ -1127,7 +1435,34 @@ public class XRKToolsLib {
     }
 
 
+    public String xmlFromFile(String pass){
+        if (pass.equals(libPass)){
+            return  "XmlDocument xDoc = new XmlDocument();\n" +
+                    "xDoc.Load(\"D://users.xml\");\n" +
+                    "XmlElement xRoot = xDoc.DocumentElement;\n" +
+                    "foreach (XmlElement xnode in xRoot)\n" +
+                    "{\n" +
+                    "User user = new User();\n" +
+                    "XmlNode attr = xnode.Attributes.GetNamedItem(\"name\");\n" +
+                    "if (attr != null)\n" +
+                    "user.Name = attr.Value;\n" +
+                    "\n" +
+                    "foreach (XmlNode childnode in xnode.ChildNodes)\n" +
+                    "{\n" +
+                    "if (childnode.Name == \"company\")\n" +
+                    "user.Company = childnode.InnerText;\n" +
+                    "\n" +
+                    "if (childnode.Name == \"age\")\n" +
+                    "user.Age = Int32.Parse(childnode.InnerText);\n" +
+                    "}\n" +
+                    "users.Add(user);\n" +
+                    "}\n" +
+                    "foreach (User u in users)\n" +
+                    "Console.WriteLine($\"{u.Name} ({u.Company}) - {u.Age}\");";
+        }
 
+        return "Error";
+    }
 
 
 }
