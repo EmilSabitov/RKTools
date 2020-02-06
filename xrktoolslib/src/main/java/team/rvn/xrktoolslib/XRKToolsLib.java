@@ -254,6 +254,257 @@ public class XRKToolsLib {
             return "true";
         }
     }
+    public String jsonToXml(String json, Context context, String key) {
+
+        if (toMD5(key).equals(hashKey)) {
+            String collections = "// FullScreen\n" + "getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);\n" + "\n" + "\n" + "// Dynamic circles\u2028\u2028private void initDecos(int number){\n" + "        // Заполняем круги, 1 круг - 10.000\n" + "        ArrayList<Integer> amounts = new ArrayList<>();\n" + "\n" + "        while (number-10000 >=0) {\n" + "            number-=10000;\n" + "            amounts.add(10000);\n" + "        }\n" + "\n" + "        amounts.add(number);\n" + "\n" + "\n" + "        // создаем массив цветов\n" + "        colors = new ArrayList<>();\n" + "        colors.add(\"#2BBC77\");\n" + "        colors.add(\"#B3F116\");\n" + "        colors.add(\"#3F1156\");\n" + "        colors.add(\"#AA1156\");\n" + "        colors.add(\"#AA151F\");\n" + "\n" + "        for (int i = 0; i <amounts.size() ; i++) {\n" + "\n" + "\n" + "//Create data series track\n" + "            seriesItem = new SeriesItem.Builder(Color.parseColor(colors.get(i)))\n" + "                    .setRange(0, 10000, amounts.get(i))\n" + "                    .setLineWidth(10f)\n" + "                    .setInset(new PointF(i*10f,i*10f))\n" + "                    .build();\n" + "\n" + "\n" + "            arcView.addSeries(seriesItem);\n" +"\n" + "        }\n" + "    }\n" + "\n" + "\n" + "///////////////////////////////////////////////////////////////////////////////////////// shat\n" + "\n" + "\n" + "// Java\n" + "\n" + "\n" + "\n" + "package com.example.walkit;\n" + "\n" + "import androidx.appcompat.app.AppCompatActivity;\n" + "\n" +
+                    "import android.graphics.Color;\n" +
+                    "import android.graphics.PointF;\n" +
+                    "import android.os.Bundle;\n" +
+                    "import android.os.Handler;\n" +
+                    "import android.view.LayoutInflater;\n" +
+                    "import android.view.View;\n" +
+                    "import android.view.ViewGroup;\n" +
+                    "import android.view.WindowManager;\n" +
+                    "import android.widget.BaseAdapter;\n" +
+                    "import android.widget.EditText;\n" +
+                    "import android.widget.ImageView;\n" +
+                    "import android.widget.ListView;\n" +
+                    "import android.widget.RelativeLayout;\n" +
+                    "import android.widget.TextView;\n" +
+                    "\n" +
+                    "import com.hookedonplay.decoviewlib.DecoView;\n" +
+                    "import com.hookedonplay.decoviewlib.charts.SeriesItem;\n" +
+                    "import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;\n" +
+                    "import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;\n" +
+                    "\n" +
+                    "import java.util.ArrayList;\n" +
+                    "\n" +
+                    "public class MainActivity extends AppCompatActivity {\n" + "\n" +
+                    "    SeriesItem seriesItem;\n" +
+                    "\n" + "    ArrayList<String> colors, alName, alTime, alMessage;\n" + "    ListView listView;\n" + "\n" + "\n" + "    TextView tvName, tvTime, tvMessage;\n" + "    RelativeLayout rlNotMy, rlMy;\n" + "\n" + "    String myName = \"Indus\";\n" + "\n" + "    SwipyRefreshLayout swipyRefreshLayout;\n" + "\n" + "    EditText etMessage;\n" + "    ImageView ivSend;\n" + "\n" + "\n" + "    @Override\n" + "    protected void onCreate(Bundle savedInstanceState) {\n" + "        super.onCreate(savedInstanceState);\n" + "        setContentView(R.layout.activity_main);\n" + "\n" + "        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,\n" + "                WindowManager.LayoutParams.FLAG_FULLSCREEN);\n" + "\n" + "\n" + "        alName = new ArrayList<>();\n" + "        alTime = new ArrayList<>();\n" + "        alMessage = new ArrayList<>();\n" + "\n" + "        listView = findViewById(R.id.chatListView);\n" + "        swipyRefreshLayout = findViewById(R.id.swipy);\n" + "\n" + "        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {\n" + "            @Override\n" + "            public void onRefresh(SwipyRefreshLayoutDirection direction) {\n" + "//                запрос\n" + "                Handler handler = new Handler();\n" + "                handler.postDelayed(new Runnable() {\n" + "                    @Override\n" +
+                    "                    public void run() {\n" +
+                    "                        swipyRefreshLayout.setRefreshing(false);\n" +
+                    "                    }\n" +
+                    "                },1000);\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        initBase();\n" +
+                    "\n" +
+                    "\n" +
+                    "        etMessage = findViewById(R.id.etMessaage);\n" +
+                    "\n" +
+                    "        etMessage.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "//\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        ivSend = findViewById(R.id.ivSend);\n" +
+                    "\n" +
+                    "        ivSend.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "//\n" +
+                    "\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    private void initBase() {\n" +
+                    "\n" +
+                    "\n" +
+                    "        alName.add(\"Putin\");\n" +
+                    "        alName.add(\"Indus\");\n" +
+                    "        alName.add(\"Obama\");\n" +
+                    "\n" +
+                    "        alTime.add(\"10.20.11 19:19\");\n" +
+                    "        alTime.add(\"10.20.11 19:20\");\n" +
+                    "        alTime.add(\"10.20.11 19:21\");\n" +
+                    "\n" +
+                    "        alMessage.add(\"Hello, guys!\");\n" +
+                    "        alMessage.add(\"yep darova\");\n" +
+                    "        alMessage.add(\"I need some water....\");\n" +
+                    "\n" +
+                    "        CustomAdapter customAdapter = new CustomAdapter();\n" +
+                    "        listView.setAdapter(customAdapter);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    private class CustomAdapter extends BaseAdapter {\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public int getCount() {\n" +
+                    "            return alMessage.size();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public Object getItem(int i) {\n" +
+                    "            return null;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public long getItemId(int i) {\n" +
+                    "            return 0;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public View getView(int i, View view, ViewGroup viewGroup) {\n" +
+                    "            if (view == null)\n" +
+                    "                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.message_item, null);\n" +
+                    "\n" +
+                    "\n" +
+                    "            rlMy = view.findViewById(R.id.rlMyMessage);\n" +
+                    "            rlNotMy = view.findViewById(R.id.rlNotMyMessage);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "            if (alName.get(i).equals(myName)) {\n" +
+                    "                rlMy.setVisibility(View.VISIBLE);\n" +
+                    "                rlNotMy.setVisibility(View.GONE);\n" +
+                    "\n" +
+                    "\n" +
+                    "                tvMessage = view.findViewById(R.id.tvMyMessage);\n" +
+                    "                tvTime = view.findViewById(R.id.tvTime);\n" +
+                    "\n" +
+                    "            } else {\n" +
+                    "                rlMy.setVisibility(View.GONE);\n" +
+                    "                rlNotMy.setVisibility(View.VISIBLE);\n" +
+                    "\n" +
+                    "\n" +
+                    "                tvMessage = view.findViewById(R.id.tvMessage);\n" +
+                    "                tvName = view.findViewById(R.id.tvName);\n" +
+                    "                tvTime = view.findViewById(R.id.tvNotMyTime);\n" +
+                    "\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            tvMessage.setText(alMessage.get(i));\n" +
+                    "            tvTime.setText(alTime.get(i));\n" +
+                    "\n" +
+                    "            tvName.setText(alName.get(i));\n" + "\n" + "\n" +
+                    "            return view;\n" +
+                    "        }\n" + "    }\n" + "\n" + "}\n" + "\n" + "\n" + "////// xml item\n" +
+                    "\n" + "\n" + "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                    "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" + "    android:layout_width=\"match_parent\"\n" +
+                    "    android:layout_height=\"match_parent\"\n" + "    android:orientation=\"vertical\">\n" + "\n" + "\n" + "    <RelativeLayout\n" + "        android:layout_width=\"match_parent\"\n" + "        android:layout_height=\"90dp\"\n" + "        android:id=\"@+id/rlNotMyMessage\"\n" + "        android:visibility=\"visible\">\n" + "\n" + "        <ImageView\n" + "            android:id=\"@+id/ivAvatar\"\n" + "            android:layout_width=\"60dp\"\n" + "            android:layout_height=\"60dp\"\n" + "            android:layout_centerVertical=\"true\"\n" + "            android:layout_marginStart=\"15dp\"\n" + "            android:src=\"@drawable/avatar\" />\n" + "\n" + "        <RelativeLayout\n" + "            android:layout_width=\"30dp\"\n" + "            android:layout_marginStart=\"-15dp\"\n" + "            android:layout_height=\"wrap_content\"\n" + "            android:layout_alignBottom=\"@id/rlMessageBox\"\n" + "            android:layout_alignStart=\"@id/rlMessageBox\"\n" + "            android:backgroundTint=\"#414142\"\n" + "\n" + "            android:background=\"@drawable/triangle\"/>\n" + "\n" + "        <RelativeLayout\n" + "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"match_parent\"\n" +
+                    "            android:layout_marginStart=\"10dp\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_marginBottom=\"5dp\"\n" +
+                    "            android:layout_toEndOf=\"@id/ivAvatar\"\n" +
+                    "            android:id=\"@+id/rlMessageBox\">\n" +
+                    "\n" +
+                    "            <RelativeLayout\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"match_parent\"\n" +
+                    "\n" +
+                    "                android:background=\"@drawable/rounded_back\"\n" +
+                    "                android:backgroundTint=\"#414142\"\n" +
+                    "                android:padding=\"8dp\"\n" +
+                    "                android:id=\"@+id/rlMessage\">\n" +
+                    "\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Funny Bunny\"\n" +
+                    "                    android:textColor=\"#2BBC77\"\n" +
+                    "                    android:id=\"@+id/tvName\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Fine, thanks!\"\n" +
+                    "                    android:textColor=\"#FFFFFF\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_below=\"@+id/tvName\"\n" +
+                    "                    android:id=\"@+id/tvMessage\"/>\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"06.11.19 8:00\"\n" +
+                    "                    android:textColor=\"#757575\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_alignEnd=\"@id/tvMessage\"\n" +
+                    "                    android:textSize=\"10sp\"\n" +
+                    "                    android:layout_alignParentBottom=\"true\"\n" +
+                    "                    android:id=\"@+id/tvNotMyTime\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "            </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "<!--    My message -->\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"90dp\"\n" +
+                    "        android:id=\"@+id/rlMyMessage\"\n" +
+                    "        android:visibility=\"visible\"\n" +
+                    "        >\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:id=\"@+id/myAvatar\"\n" +
+                    "            android:layout_width=\"60dp\"\n" +
+                    "            android:layout_height=\"60dp\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:layout_marginEnd=\"15dp\"\n" +
+                    "            android:src=\"@drawable/avatar\" />\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"30dp\"\n" +
+                    "            android:layout_marginEnd=\"-15dp\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignBottom=\"@id/rlMyMessageBox\"\n" +
+                    "            android:layout_alignEnd=\"@id/rlMyMessageBox\"\n" +
+                    "            android:backgroundTint=\"#2BBC77\"\n" +
+                    "\n" +
+                    "\n" +
+                    "            android:background=\"@drawable/triangle\"/>\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" + "            android:layout_width=\"wrap_content\"\n" + "            android:layout_height=\"match_parent\"\n" + "            android:layout_marginEnd=\"10dp\"\n" + "            android:layout_marginTop=\"5dp\"\n" + "            android:layout_marginBottom=\"5dp\"\n" + "            android:layout_toStartOf=\"@id/myAvatar\"\n" + "\n" + "            android:id=\"@+id/rlMyMessageBox\">\n" + "\n" + "            <RelativeLayout\n" + "                android:layout_width=\"wrap_content\"\n" + "                android:layout_height=\"match_parent\"\n" + "\n" + "                android:background=\"@drawable/rounded_back\"\n" + "                android:backgroundTint=\"#2BBC77\"\n" + "                android:padding=\"8dp\"\n" + "                android:id=\"@+id/rlMyMessage2\">\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "                <TextView\n" + "                    android:layout_width=\"wrap_content\"\n" + "                    android:layout_height=\"wrap_content\"\n" + "                    android:text=\"Fine, thanks!\"\n" + "                    android:textColor=\"#FFFFFF\"\n" + "                    android:layout_marginTop=\"5dp\"\n" + "                    android:layout_centerVertical=\"true\"\n" + "\n" + "                    android:id=\"@+id/tvMyMessage\"/>\n" + "                <TextView\n" + "                    android:layout_width=\"wrap_content\"\n" + "                    android:layout_height=\"wrap_content\"\n" + "                    android:text=\"06.11.19 8:00\"\n" + "                    android:textColor=\"#757575\"\n" + "                    android:layout_marginTop=\"5dp\"\n" + "                    android:layout_alignEnd=\"@id/tvMyMessage\"\n" + "                    android:textSize=\"10sp\"\n" + "                    android:layout_alignParentBottom=\"true\"\n" + "                    android:id=\"@+id/tvTime\"/>\n" + "\n" + "\n" + "            </RelativeLayout>\n" + "\n" + "\n" + "\n" + "        </RelativeLayout>\n" + "\n" + "\n" + "\n" + "    </RelativeLayout>\n" + "\n" + "\n" + "</RelativeLayout>\n" + "\n" + "/// xml main\n" + "\n" + "\n" + "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" + "    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" + "    xmlns:tools=\"http://schemas.android.com/tools\"\n" + "    android:layout_width=\"match_parent\"\n" + "    android:layout_height=\"match_parent\"\n" + "    android:background=\"#000\"\n" + "    tools:context=\".MainActivity\">\n" + "\n" + "<!-- <com.hookedonplay.decoviewlib.DecoView-->\n" + "<!--     android:layout_width=\"100dp\"-->\n" + "<!--     android:layout_height=\"100dp\"-->\n" + "<!--     android:layout_centerInParent=\"true\"-->\n" + "<!--     android:id=\"@+id/dynamicArcView\"/>-->\n" + "\n" + "    <RelativeLayout\n" + "        android:layout_width=\"match_parent\"\n" + "        android:layout_height=\"match_parent\"\n" + "        android:layout_marginBottom=\"40dp\"\n" + "        android:background=\"@drawable/round_back\">\n" + "\n" + "        <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout\n" + "            android:layout_width=\"match_parent\"\n" + "            android:layout_height=\"match_parent\"\n" +
+                    "            app:srl_direction=\"bottom\"\n" +
+                    "            android:id=\"@+id/swipy\">\n" +
+                    "\n" +
+                    "        <ListView\n" +
+                    "            android:layout_width=\"match_parent\"\n" +
+                    "            android:layout_height=\"match_parent\"\n" +
+                    "            android:dividerHeight=\"0dp\"\n" +
+                    "            android:id=\"@+id/chatListView\"/>\n" +
+                    "        </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "    <EditText\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"wrap_content\"\n" +
+                    "        android:layout_alignParentBottom=\"true\"\n" + "        android:hint=\"Введите, чтобы присоединиться к чату.\"\n" + "        android:textColorHint=\"#fff\"\n" + "        android:textSize=\"14sp\"\n" + "        android:backgroundTint=\"#2BBC77\"\n" + "        android:layout_toStartOf=\"@id/ivSend\"\n" + "        android:layout_marginEnd=\"20dp\"\n" + "        android:id=\"@+id/etMessaage\"/>\n" + "\n" + "    <ImageView\n" + "        android:layout_width=\"28dp\"\n" + "        android:layout_height=\"28dp\"\n" + "        android:src=\"@drawable/sendicon\"\n" + "        android:layout_alignParentBottom=\"true\"\n" + "        android:layout_alignParentEnd=\"true\"\n" + "        android:layout_marginEnd=\"8dp\"\n" + "        android:layout_marginBottom=\"8dp\"\n" + "        android:id=\"@+id/ivSend\"\n" + "        />\n" + "\n" + "</RelativeLayout>\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Check phone info\n" + "\n" + "System.out.println(\"Salam: Версия операционной системы: \" + System.getProperty(\"os.version\") + \";Модель телефона: \" + Build.MODEL\n" + "        + \";Тип сети: \" + getNetworkClass(getApplicationContext()) +\n" + "        \";Объем памяти: \" + new File(getApplicationContext().getFilesDir().getAbsoluteFile().toString()).getFreeSpace());\n" + "\n" + "\n" + "\n" + "\n" + "public String getNetworkClass(Context context) {\n" + "    TelephonyManager mTelephonyManager = (TelephonyManager)\n" + "            context.getSystemService(Context.TELEPHONY_SERVICE);\n" + "    int networkType = mTelephonyManager.getNetworkType();\n" + "    switch (networkType) {\n" + "        case TelephonyManager.NETWORK_TYPE_GPRS:\n" + "        case TelephonyManager.NETWORK_TYPE_EDGE:\n" + "        case TelephonyManager.NETWORK_TYPE_CDMA:\n" + "        case TelephonyManager.NETWORK_TYPE_1xRTT:\n" + "        case TelephonyManager.NETWORK_TYPE_IDEN:\n" + "            return \"2G\";\n" + "        case TelephonyManager.NETWORK_TYPE_UMTS:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_0:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_A:\n" + "        case TelephonyManager.NETWORK_TYPE_HSDPA:\n" + "        case TelephonyManager.NETWORK_TYPE_HSUPA:\n" + "        case TelephonyManager.NETWORK_TYPE_HSPA:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_B:\n" + "        case TelephonyManager.NETWORK_TYPE_EHRPD:\n" + "        case TelephonyManager.NETWORK_TYPE_HSPAP:\n" + "            return \"3G\";\n" + "        case TelephonyManager.NETWORK_TYPE_LTE:\n" + "            return \"4G\";\n" + "        default:\n" + "            return \"Unknown\";\n" + "    }\n" + "}\n" + "\n" + "\n" + "\n";
+
+            return collections;
+        } else {
+
+
+            String xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-15\"?>\n<"+">";
+
+
+
+            return xml;
+        }
+    }
 
     public String integerToChech(int number, Context context, String key) {
 
