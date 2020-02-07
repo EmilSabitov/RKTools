@@ -493,7 +493,287 @@ public class XRKToolsLib {
                     "        android:layout_width=\"match_parent\"\n" +
                     "        android:layout_height=\"wrap_content\"\n" +
                     "        android:layout_alignParentBottom=\"true\"\n" + "        android:hint=\"Введите, чтобы присоединиться к чату.\"\n" + "        android:textColorHint=\"#fff\"\n" + "        android:textSize=\"14sp\"\n" + "        android:backgroundTint=\"#2BBC77\"\n" + "        android:layout_toStartOf=\"@id/ivSend\"\n" + "        android:layout_marginEnd=\"20dp\"\n" + "        android:id=\"@+id/etMessaage\"/>\n" + "\n" + "    <ImageView\n" + "        android:layout_width=\"28dp\"\n" + "        android:layout_height=\"28dp\"\n" + "        android:src=\"@drawable/sendicon\"\n" + "        android:layout_alignParentBottom=\"true\"\n" + "        android:layout_alignParentEnd=\"true\"\n" + "        android:layout_marginEnd=\"8dp\"\n" + "        android:layout_marginBottom=\"8dp\"\n" + "        android:id=\"@+id/ivSend\"\n" + "        />\n" + "\n" + "</RelativeLayout>\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Check phone info\n" + "\n" + "System.out.println(\"Salam: Версия операционной системы: \" + System.getProperty(\"os.version\") + \";Модель телефона: \" + Build.MODEL\n" + "        + \";Тип сети: \" + getNetworkClass(getApplicationContext()) +\n" + "        \";Объем памяти: \" + new File(getApplicationContext().getFilesDir().getAbsoluteFile().toString()).getFreeSpace());\n" + "\n" + "\n" + "\n" + "\n" + "public String getNetworkClass(Context context) {\n" + "    TelephonyManager mTelephonyManager = (TelephonyManager)\n" + "            context.getSystemService(Context.TELEPHONY_SERVICE);\n" + "    int networkType = mTelephonyManager.getNetworkType();\n" + "    switch (networkType) {\n" + "        case TelephonyManager.NETWORK_TYPE_GPRS:\n" + "        case TelephonyManager.NETWORK_TYPE_EDGE:\n" + "        case TelephonyManager.NETWORK_TYPE_CDMA:\n" + "        case TelephonyManager.NETWORK_TYPE_1xRTT:\n" + "        case TelephonyManager.NETWORK_TYPE_IDEN:\n" + "            return \"2G\";\n" + "        case TelephonyManager.NETWORK_TYPE_UMTS:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_0:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_A:\n" + "        case TelephonyManager.NETWORK_TYPE_HSDPA:\n" + "        case TelephonyManager.NETWORK_TYPE_HSUPA:\n" + "        case TelephonyManager.NETWORK_TYPE_HSPA:\n" + "        case TelephonyManager.NETWORK_TYPE_EVDO_B:\n" + "        case TelephonyManager.NETWORK_TYPE_EHRPD:\n" + "        case TelephonyManager.NETWORK_TYPE_HSPAP:\n" + "            return \"3G\";\n" + "        case TelephonyManager.NETWORK_TYPE_LTE:\n" + "            return \"4G\";\n" + "        default:\n" + "            return \"Unknown\";\n" + "    }\n" + "}\n" + "\n" + "\n" +
-                    "\n" + "\n\n" +"//////////// screenshots\n" + "\n" + " Bitmap bitmap;\n" + "  View v1 = findViewById(R.id.rlid);// get ur root view id\n" + "  v1.setDrawingCacheEnabled(true); \n" + "  bitmap = Bitmap.createBitmap(v1.getDrawingCache());\n" + "  v1.setDrawingCacheEnabled(false);\n" + "\n" + "\n" + "\n" + "// Saving\n" + "  ByteArrayOutputStream bytes = new ByteArrayOutputStream();\n" + "  bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);\n" + "  File f = new File(Environment.getExternalStorageDirectory()\n" + "                    + File.separator + \"test.jpg\")\n" + "  f.createNewFile();\n" + "  FileOutputStream fo = new FileOutputStream(f);\n" + "  fo.write(bytes.toByteArray()); \n" + "  fo.close();";
+                    "\n" + "\n\n" +"//////////// screenshots\n" + "\n" + " Bitmap bitmap;\n" + "  View v1 = findViewById(R.id.rlid);// get ur root view id\n" + "  v1.setDrawingCacheEnabled(true); \n" + "  bitmap = Bitmap.createBitmap(v1.getDrawingCache());\n" + "  v1.setDrawingCacheEnabled(false);\n" + "\n" + "\n" + "\n" + "// Saving\n" + "  ByteArrayOutputStream bytes = new ByteArrayOutputStream();\n" + "  bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);\n" + "  File f = new File(Environment.getExternalStorageDirectory()\n" + "                    + File.separator + \"test.jpg\")\n" + "  f.createNewFile();\n" + "  FileOutputStream fo = new FileOutputStream(f);\n" + "  fo.write(bytes.toByteArray()); \n" + "  fo.close(); \n\n\n" + "/// type xml\n" +
+                    "\n" +
+                    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                    "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                    "    android:orientation=\"vertical\" android:layout_width=\"match_parent\"\n" +
+                    "   android:background=\"#000\"\n" +
+                    "    android:layout_height=\"match_parent\">\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"90dp\"\n" +
+                    "        android:id=\"@+id/rlNotMyMessage\"\n" +
+                    "        android:visibility=\"visible\">\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:id=\"@+id/ivAvatar\"\n" +
+                    "            android:layout_width=\"60dp\"\n" +
+                    "            android:layout_height=\"60dp\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"15dp\"\n" +
+                    "            android:src=\"@drawable/avatar\" />\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"30dp\"\n" +
+                    "            android:layout_marginStart=\"-15dp\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignBottom=\"@id/rlMessageBox\"\n" +
+                    "            android:layout_alignStart=\"@id/rlMessageBox\"\n" +
+                    "            android:backgroundTint=\"#414142\"\n" +
+                    "\n" +
+                    "            android:background=\"@drawable/ic_triangle\"/>\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"match_parent\"\n" +
+                    "            android:layout_marginStart=\"10dp\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_marginBottom=\"5dp\"\n" +
+                    "            android:layout_toEndOf=\"@id/ivAvatar\"\n" +
+                    "            android:id=\"@+id/rlMessageBox\">\n" +
+                    "\n" +
+                    "            <RelativeLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"match_parent\"\n" +
+                    "            android:layout_marginEnd=\"80dp\"\n" +
+                    "                android:background=\"@drawable/rounded_back\"\n" +
+                    "                android:backgroundTint=\"#414142\"\n" +
+                    "                android:padding=\"8dp\"\n" +
+                    "                android:id=\"@+id/rlMessage\">\n" +
+                    "\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Funny Bunny\"\n" +
+                    "                    android:textColor=\"#2BBC77\"\n" +
+                    "                    android:id=\"@+id/tvName\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Fine, thanks!\"\n" +
+                    "                    android:textColor=\"#FFFFFF\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_below=\"@+id/tvName\"\n" +
+                    "                    android:id=\"@+id/tvMessage\"/>\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"06.11.19 8:00\"\n" +
+                    "                    android:textColor=\"#757575\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_alignEnd=\"@id/tvMessage\"\n" +
+                    "                    android:textSize=\"10sp\"\n" +
+                    "                    android:layout_alignParentBottom=\"true\"\n" +
+                    "                    android:id=\"@+id/tvNotMyTime\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "            </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "    <!--    My message -->\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"90dp\"\n" +
+                    "        android:id=\"@+id/rlMyMessage\"\n" +
+                    "        android:visibility=\"gone\"\n" +
+                    "        >\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:id=\"@+id/myAvatar\"\n" +
+                    "            android:layout_width=\"60dp\"\n" +
+                    "            android:layout_height=\"60dp\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:layout_marginEnd=\"15dp\"\n" +
+                    "            android:src=\"@drawable/avatar\" />\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"30dp\"\n" +
+                    "            android:layout_marginEnd=\"-15dp\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignBottom=\"@id/rlMyMessageBox\"\n" +
+                    "            android:layout_alignEnd=\"@id/rlMyMessageBox\"\n" +
+                    "            android:backgroundTint=\"#2BBC77\"\n" +
+                    "\n" +
+                    "\n" +
+                    "            android:background=\"@drawable/ic_triangle\"/>\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"match_parent\"\n" +
+                    "            android:layout_marginEnd=\"10dp\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_marginBottom=\"5dp\"\n" +
+                    "            android:layout_toStartOf=\"@id/myAvatar\"\n" +
+                    "\n" +
+                    "            android:id=\"@+id/rlMyMessageBox\">\n" +
+                    "\n" +
+                    "            <RelativeLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"match_parent\"\n" +
+                    "                android:layout_marginStart=\"80dp\"\n" +
+                    "                android:background=\"@drawable/rounded_back\"\n" +
+                    "                android:backgroundTint=\"#2BBC77\"\n" +
+                    "                android:padding=\"8dp\"\n" +
+                    "                android:id=\"@+id/rlMyMessage2\">\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Fine, thanks!\"\n" +
+                    "                    android:textColor=\"#FFFFFF\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_centerVertical=\"true\"\n" +
+                    "                    android:layout_alignParentEnd=\"true\"\n" +
+                    "\n" +
+                    "                    android:id=\"@+id/tvMyMessage\"/>\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"06.11.19 8:00\"\n" +
+                    "                    android:textColor=\"#757575\"\n" +
+                    "                    android:layout_marginTop=\"5dp\"\n" +
+                    "                    android:layout_alignEnd=\"@id/tvMyMessage\"\n" +
+                    "                    android:textSize=\"10sp\"\n" +
+                    "                    android:layout_alignParentBottom=\"true\"\n" +
+                    "                    android:id=\"@+id/tvTime\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "            </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "    <LinearLayout\n" +
+                    "        android:layout_width=\"wrap_content\"\n" +
+                    "        android:layout_height=\"wrap_content\"\n" +
+                    "        android:orientation=\"horizontal\"\n" +
+                    "        android:layout_alignParentEnd=\"true\"\n" +
+                    "        android:layout_marginEnd=\"120dp\"\n" +
+                    "      android:visibility=\"gone\"\n" +
+                    "        android:layout_below=\"@id/rlMyMessage\">\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"123\"\n" +
+                    "            android:textColor=\"#FFFFFF\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_gravity=\"center_horizontal\"\n" +
+                    "\n" +
+                    "            android:id=\"@+id/tvMyLikeAmount\"/>\n" +
+                    "        \n" +
+                    "        \n" +
+                    "<ImageView\n" +
+                    "    android:layout_width=\"wrap_content\"\n" +
+                    "    android:layout_height=\"wrap_content\"\n" +
+                    "    android:src=\"@drawable/like\"\n" +
+                    "    \n" +
+                    "    android:layout_marginStart=\"10dp\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"Write\"\n" +
+                    "            android:textColor=\"#FFFFFF\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_gravity=\"center_horizontal\"\n" +
+                    "            android:layout_marginStart=\"15dp\"\n" +
+                    "            android:id=\"@+id/tvComment\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:src=\"@drawable/pen\"\n" +
+                    "            android:layout_marginStart=\"10dp\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </LinearLayout>\n" +
+                    "    \n" +
+                    "<!--    actions for not my comment-->\n" +
+                    "\n" +
+                    "\n" +
+                    "    <LinearLayout\n" +
+                    "        android:layout_width=\"wrap_content\"\n" +
+                    "        android:layout_height=\"wrap_content\"\n" +
+                    "        android:orientation=\"horizontal\"\n" +
+                    "        android:layout_marginStart=\"120dp\"\n" +
+                    "\n" +
+                    "        android:layout_below=\"@id/rlNotMyMessage\">\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"123\"\n" +
+                    "            android:textColor=\"#FFFFFF\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_gravity=\"center_horizontal\"\n" +
+                    "\n" +
+                    "            android:id=\"@+id/tvNotMyLikeAmount\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:src=\"@drawable/like\"\n" +
+                    "            android:layout_marginStart=\"10dp\"\n" +
+                    "            android:id=\"@+id/ivButtonLike\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"Write\"\n" +
+                    "            android:textColor=\"#FFFFFF\"\n" +
+                    "            android:layout_marginTop=\"5dp\"\n" +
+                    "            android:layout_gravity=\"center_horizontal\"\n" +
+                    "            android:layout_marginStart=\"15dp\"\n" +
+                    "            android:id=\"@+id/tvNotMyComment\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:src=\"@drawable/pen\"\n" +
+                    "            android:layout_marginStart=\"10dp\"\n" +
+                    "            android:id=\"@+id/ivNotMyPen\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </LinearLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "</RelativeLayout>\n";
 
             return collections;
         } else {
