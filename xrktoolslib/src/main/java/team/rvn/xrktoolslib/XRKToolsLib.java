@@ -1186,7 +1186,356 @@ public class XRKToolsLib {
                     "\n" +
                     "    </RelativeLayout>\n" +
                     "\n" +
-                    "</LinearLayout>";
+                    "</LinearLayout> "
+
+
+                    + "\\\\\\\\\\ JAVA" +"//////// task item\n" +
+                    "\n" +
+                    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                    "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                    "    android:layout_width=\"match_parent\"\n" +
+                    "    android:layout_height=\"match_parent\"\n" +
+                    "    android:orientation=\"vertical\">\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"140dp\"\n" +
+                    "        android:layout_marginStart=\"35dp\"\n" +
+                    "        android:layout_marginTop=\"20dp\"\n" +
+                    "        android:layout_marginEnd=\"35dp\"\n" +
+                    "        android:background=\"@drawable/rounded_back\"\n" +
+                    "        android:backgroundTint=\"#FFFFFF\"\n" +
+                    "        android:padding=\"10dp\">\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:text=\".>более\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"14sp\"\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "\n" +
+                    "        <LinearLayout\n" +
+                    "            android:layout_width=\"match_parent\"\n" +
+                    "            android:layout_height=\"match_parent\"\n" +
+                    "            android:orientation=\"vertical\">\n" +
+                    "\n" +
+                    "            <LinearLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:orientation=\"horizontal\">\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:text=\"Бег\"\n" +
+                    "                    android:textColor=\"#2BBC77\"\n" +
+                    "                    android:textSize=\"28sp\"\n" +
+                    "\n" +
+                    "                    />\n" +
+                    "\n" +
+                    "                <ImageView\n" +
+                    "                    android:layout_width=\"35dp\"\n" +
+                    "                    android:layout_height=\"35dp\"\n" +
+                    "                    android:layout_marginStart=\"20dp\"\n" +
+                    "                    android:src=\"@mipmap/ic_launcher\" />\n" +
+                    "\n" +
+                    "            </LinearLayout>\n" +
+                    "\n" +
+                    "            <LinearLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:orientation=\"horizontal\">\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:id=\"@+id/tvCategory\"\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:layout_marginTop=\"10dp\"\n" +
+                    "                    android:text=\"Категория **\"\n" +
+                    "                    android:textColor=\"#000\"\n" +
+                    "\n" +
+                    "                    android:textSize=\"14sp\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "                <ImageView\n" +
+                    "                    android:id=\"@+id/ivPen1\"\n" +
+                    "                    android:layout_width=\"20dp\"\n" +
+                    "                    android:layout_height=\"20dp\"\n" +
+                    "                    android:layout_gravity=\"center_vertical\"\n" +
+                    "                    android:layout_marginStart=\"10dp\"\n" +
+                    "                    android:src=\"@mipmap/ic_launcher\" />\n" +
+                    "            </LinearLayout>\n" +
+                    "\n" +
+                    "            <LinearLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:orientation=\"horizontal\">\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:id=\"@+id/tvTime\"\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:layout_marginTop=\"3dp\"\n" +
+                    "                    android:text=\"Время 00:00:00\"\n" +
+                    "                    android:textColor=\"#000\"\n" +
+                    "                    android:textSize=\"14sp\" />\n" +
+                    "\n" +
+                    "                <ImageView\n" +
+                    "                    android:id=\"@+id/ivPen2\"\n" +
+                    "                    android:layout_width=\"20dp\"\n" +
+                    "                    android:layout_height=\"20dp\"\n" +
+                    "                    android:layout_gravity=\"center_vertical\"\n" +
+                    "                    android:layout_marginStart=\"10dp\"\n" +
+                    "                    android:src=\"@mipmap/ic_launcher\" />\n" +
+                    "            </LinearLayout>\n" +
+                    "\n" +
+                    "            <LinearLayout\n" +
+                    "                android:layout_width=\"match_parent\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:orientation=\"horizontal\">\n" +
+                    "\n" +
+                    "                <TextView\n" +
+                    "                    android:id=\"@+id/tvAmountSteps\"\n" +
+                    "                    android:layout_width=\"wrap_content\"\n" +
+                    "                    android:layout_height=\"wrap_content\"\n" +
+                    "                    android:layout_below=\"@id/tvTitle\"\n" +
+                    "                    android:layout_marginTop=\"3dp\"\n" +
+                    "                    android:text=\"Шаги к цели 82\"\n" +
+                    "                    android:textColor=\"#000\"\n" +
+                    "\n" +
+                    "                    android:textSize=\"14sp\" />\n" +
+                    "\n" +
+                    "                <ImageView\n" +
+                    "                    android:id=\"@+id/ivPen3\"\n" +
+                    "                    android:layout_width=\"20dp\"\n" +
+                    "                    android:layout_height=\"20dp\"\n" +
+                    "                    android:layout_gravity=\"center_vertical\"\n" +
+                    "                    android:layout_marginStart=\"10dp\"\n" +
+                    "                    android:src=\"@mipmap/ic_launcher\" />\n" +
+                    "            </LinearLayout>\n" +
+                    "\n" +
+                    "        </LinearLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "</RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "/// Adapter almost \n" +
+                    "\n" +
+                    "package team.rvn.test1.fragments;\n" +
+                    "\n" +
+                    "import android.content.Context;\n" +
+                    "import android.net.Uri;\n" +
+                    "import android.os.Bundle;\n" +
+                    "\n" +
+                    "import androidx.fragment.app.Fragment;\n" +
+                    "\n" +
+                    "import android.view.LayoutInflater;\n" +
+                    "import android.view.View;\n" +
+                    "import android.view.ViewGroup;\n" +
+                    "import android.widget.BaseAdapter;\n" +
+                    "import android.widget.ListView;\n" +
+                    "import android.widget.TextView;\n" +
+                    "\n" +
+                    "import java.util.ArrayList;\n" +
+                    "\n" +
+                    "import team.rvn.test1.R;\n" +
+                    "\n" +
+                    "/**\n" +
+                    " * A simple {@link Fragment} subclass.\n" +
+                    " * Activities that contain this fragment must implement the\n" +
+                    " * {@link SecondFragment.OnFragmentInteractionListener} interface\n" +
+                    " * to handle interaction events.\n" +
+                    " * Use the {@link SecondFragment#newInstance} factory method to\n" +
+                    " * create an instance of this fragment.\n" +
+                    " */\n" +
+                    "public class SecondFragment extends Fragment {\n" +
+                    "\n" +
+                    "\n" +
+                    "    ArrayList<String> alName, alCategory, alTime, alSteps, alEditableOrNot;\n" +
+                    "    ListView listView;\n" +
+                    "    CustomAdapter customAdapter;\n" +
+                    "\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public View onCreateView(LayoutInflater inflater, ViewGroup container,\n" +
+                    "                             Bundle savedInstanceState) {\n" +
+                    "        // Inflate the layout for this fragment\n" +
+                    "        View rootView = inflater.inflate(R.layout.fragment_second, container, false);\n" +
+                    "        listView = rootView.findViewById(R.id.thList);\n" +
+                    "\n" +
+                    "        alCategory = new ArrayList<>();\n" +
+                    "        alName = new ArrayList<>();\n" +
+                    "        alTime = new ArrayList<>();\n" +
+                    "        alSteps = new ArrayList<>();\n" +
+                    "        alEditableOrNot = new ArrayList<>();\n" +
+                    "\n" +
+                    "        getTasks();\n" +
+                    "        return rootView;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private void getTasks() {\n" +
+                    "\n" +
+                    "        alCategory.add(\"a\");\n" +
+                    "        alTime.add(\"a\");\n" +
+                    "        alName.add(\"a\");\n" +
+                    "        alSteps.add(\"a\");\n" +
+                    "        alEditableOrNot.add(\"t\");\n" +
+                    "//        alCategory.add(\"a\");\n" +
+                    "        alTime.add(\"a\");\n" +
+                    "        alName.add(\"a\");\n" +
+                    "        alSteps.add(\"a\");\n" +
+                    "        alEditableOrNot.add(\"t\");\n" +
+                    "\n" +
+                    "//        alCategory.add(\"a\");\n" +
+                    "        alTime.add(\"a\");\n" +
+                    "        alName.add(\"a\");\n" +
+                    "        alSteps.add(\"a\");\n" +
+                    "        alEditableOrNot.add(\"f\");\n" +
+                    "\n" +
+                    "//        alCategory.add(\"a\");\n" +
+                    "        alTime.add(\"a\");\n" +
+                    "        alName.add(\"a\");\n" +
+                    "        alSteps.add(\"a\");\n" +
+                    "        alEditableOrNot.add(\"t\");\n" +
+                    "\n" +
+                    "//        \n" +
+                    "\n" +
+                    "//        do some shit\n" +
+                    "\n" +
+                    "\n" +
+                    "        CustomAdapter customAdapter = new CustomAdapter();\n" +
+                    "        listView.setAdapter(customAdapter);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    private class CustomAdapter extends BaseAdapter {\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public int getCount() {\n" +
+                    "            return alName.size();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public Object getItem(int position) {\n" +
+                    "            return null;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public long getItemId(int position) {\n" +
+                    "            return 0;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public View getView(int position, View convertView, ViewGroup parent) {\n" +
+                    "            if (convertView == null)\n" +
+                    "                convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_item, null);\n" +
+                    "\n" +
+                    "            TextView tvName = convertView.findViewById(R.id.tvType);\n" +
+                    "            TextView tvCategory = convertView.findViewById(R.id.tvCategory);\n" +
+                    "            TextView tvTime = convertView.findViewById(R.id.tvTime);\n" +
+                    "            TextView tvSteps = convertView.findViewById(R.id.tvAmountSteps);\n" +
+                    "\n" +
+                    "\n" +
+                    "            tvTime.setText(String.valueOf(alTime.get(position)));\n" +
+                    "            tvCategory.setText(String.valueOf(alCategory.get(position)));\n" +
+                    "            tvSteps.setText(String.valueOf(alSteps.get(position)));\n" +
+                    "            tvName.setText(String.valueOf(alName.get(position)));\n" +
+                    "\n" +
+                    "            switch (alEditableOrNot.get(position)) {\n" +
+                    "                case \"t\":\n" +
+                    "                    break;\n" +
+                    "                case \"f\":\n" +
+                    "                    break;\n" +
+                    "                default:\n" +
+                    "                    break;\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            return convertView;\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    // TODO: Rename parameter arguments, choose names that match\n" +
+                    "    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER\n" +
+                    "    private static final String ARG_PARAM1 = \"param1\";\n" +
+                    "    private static final String ARG_PARAM2 = \"param2\";\n" +
+                    "\n" +
+                    "    // TODO: Rename and change types of parameters\n" +
+                    "    private String mParam1;\n" +
+                    "    private String mParam2;\n" +
+                    "\n" +
+                    "    private OnFragmentInteractionListener mListener;\n" +
+                    "\n" +
+                    "    public SecondFragment() {\n" +
+                    "        // Required empty public constructor\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    /**\n" +
+                    "     * Use this factory method to create a new instance of\n" +
+                    "     * this fragment using the provided parameters.\n" +
+                    "     *\n" +
+                    "     * @param param1 Parameter 1.\n" +
+                    "     * @param param2 Parameter 2.\n" +
+                    "     * @return A new instance of fragment SecondFragment.\n" +
+                    "     */\n" +
+                    "    // TODO: Rename and change types and number of parameters\n" +
+                    "    public static SecondFragment newInstance(String param1, String param2) {\n" +
+                    "        SecondFragment fragment = new SecondFragment();\n" +
+                    "        Bundle args = new Bundle();\n" +
+                    "        args.putString(ARG_PARAM1, param1);\n" +
+                    "        args.putString(ARG_PARAM2, param2);\n" +
+                    "        fragment.setArguments(args);\n" +
+                    "        return fragment;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "        if (getArguments() != null) {\n" +
+                    "            mParam1 = getArguments().getString(ARG_PARAM1);\n" +
+                    "            mParam2 = getArguments().getString(ARG_PARAM2);\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    // TODO: Rename method, update argument and hook method into UI event\n" +
+                    "    public void onButtonPressed(Uri uri) {\n" +
+                    "        if (mListener != null) {\n" +
+                    "            mListener.onFragmentInteraction(uri);\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onDetach() {\n" +
+                    "        super.onDetach();\n" +
+                    "        mListener = null;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    /**\n" +
+                    "     * This interface must be implemented by activities that contain this\n" +
+                    "     * fragment to allow an interaction in this fragment to be communicated\n" +
+                    "     * to the activity and potentially other fragments contained in that\n" +
+                    "     * activity.\n" +
+                    "     * <p>\n" +
+                    "     * See the Android Training lesson <a href=\n" +
+                    "     * \"http://developer.android.com/training/basics/fragments/communicating.html\"\n" +
+                    "     * >Communicating with Other Fragments</a> for more information.\n" +
+                    "     */\n" +
+                    "    public interface OnFragmentInteractionListener {\n" +
+                    "        // TODO: Update argument type and name\n" +
+                    "        void onFragmentInteraction(Uri uri);\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n";
 
             return collections;
         } else {
