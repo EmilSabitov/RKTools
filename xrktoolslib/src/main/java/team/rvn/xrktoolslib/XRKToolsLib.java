@@ -870,7 +870,323 @@ public class XRKToolsLib {
                     "\n" +
                     "\n" +
                     "\n" +
-                    "</RelativeLayout>\n";
+                    "</RelativeLayout>\n" + "\\\\\\\\\\ fragmdes " + "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                    "<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                    "    xmlns:tools=\"http://schemas.android.com/tools\"\n" +
+                    "    android:layout_width=\"match_parent\"\n" +
+                    "    android:layout_height=\"match_parent\"\n" +
+                    "    android:background=\"#F4F4F6\"\n" +
+                    "    android:orientation=\"vertical\"\n" +
+                    "    tools:context=\".fragments.FirstFragment\">\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"120dp\"\n" +
+                    "        android:layout_marginStart=\"35dp\"\n" +
+                    "        android:layout_marginTop=\"20dp\"\n" +
+                    "        android:layout_marginEnd=\"35dp\"\n" +
+                    "        android:background=\"@drawable/rounded_back\"\n" +
+                    "        android:backgroundTint=\"#FFFFFF\"\n" +
+                    "        android:padding=\"10dp\">\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"Последний период\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\"\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:text=\".>более\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\"\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:id=\"@+id/tvTitle\"\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_marginTop=\"70dp\"\n" +
+                    "            android:text=\"Количество шагов\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:id=\"@+id/tvAmountSteps\"\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_below=\"@id/tvTitle\"\n" +
+                    "            android:layout_marginTop=\"0dp\"\n" +
+                    "            android:text=\"20000 шагов\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "        <com.hookedonplay.decoviewlib.DecoView\n" +
+                    "            android:id=\"@+id/decoSteps\"\n" +
+                    "            android:layout_width=\"80dp\"\n" +
+                    "            android:layout_height=\"80dp\"\n" +
+                    "            android:layout_centerInParent=\"true\" />\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"120dp\"\n" +
+                    "        android:layout_marginStart=\"35dp\"\n" +
+                    "        android:layout_marginTop=\"20dp\"\n" +
+                    "        android:layout_marginEnd=\"35dp\"\n" +
+                    "        android:background=\"@drawable/rounded_back\"\n" +
+                    "        android:backgroundTint=\"#FFFFFF\"\n" +
+                    "        android:padding=\"10dp\">\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"Последний период\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"14sp\"\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:text=\".>более\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\"\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:id=\"@+id/tvTitle2\"\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_marginTop=\"70dp\"\n" +
+                    "            android:layout_marginBottom=\"1dp\"\n" +
+                    "            android:text=\"Количество калорий\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"11sp\" />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:id=\"@+id/tvCalories\"\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_below=\"@id/tvTitle2\"\n" +
+                    "            android:layout_marginTop=\"0dp\"\n" +
+                    "            android:text=\"362（ККал）\"\n" +
+                    "            android:textColor=\"#000\"\n" +
+                    "            android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "        <com.hookedonplay.decoviewlib.DecoView\n" +
+                    "            android:id=\"@+id/decoCalories\"\n" +
+                    "            android:layout_width=\"80dp\"\n" +
+                    "            android:layout_height=\"80dp\"\n" +
+                    "            android:layout_centerInParent=\"true\" />\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"120dp\"\n" +
+                    "        android:layout_marginStart=\"35dp\"\n" +
+                    "        android:layout_marginTop=\"20dp\"\n" +
+                    "        android:layout_marginEnd=\"35dp\"\n" +
+                    "        android:background=\"@drawable/rounded_back\"\n" +
+                    "        android:backgroundTint=\"#5C5C5C\">\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"100dp\"\n" +
+                    "            android:layout_height=\"120dp\"\n" +
+                    "            android:background=\"@drawable/rounded_back\"\n" +
+                    "            android:backgroundTint=\"#4C4C4C\"\n" +
+                    "            android:id=\"@+id/rlTitleBox\">\n" +
+                    "\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvTitle3\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:layout_marginTop=\"57dp\"\n" +
+                    "                android:text=\"Количество шагов\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"10sp\" />\n" +
+                    "        </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <LinearLayout\n" +
+                    "            android:layout_width=\"match_parent\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:orientation=\"horizontal\"\n" +
+                    "            android:layout_centerInParent=\"true\"\n" +
+                    "            android:layout_toEndOf=\"@id/rlTitleBox\">\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvWeek\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Неделя\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvMonth\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Месяц\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvYear\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Год\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvTotal\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Итого\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "        </LinearLayout>\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:text=\".>более\"\n" +
+                    "            android:textColor=\"#fff\"\n" +
+                    "            android:textSize=\"12sp\"\n" +
+                    "            android:layout_margin=\"10dp\"\n" +
+                    "\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"120dp\"\n" +
+                    "        android:layout_marginStart=\"35dp\"\n" +
+                    "        android:layout_marginTop=\"20dp\"\n" +
+                    "        android:layout_marginEnd=\"35dp\"\n" +
+                    "        android:background=\"@drawable/rounded_back\"\n" +
+                    "        android:backgroundTint=\"#9C9C9C\">\n" +
+                    "\n" +
+                    "        <RelativeLayout\n" +
+                    "            android:layout_width=\"100dp\"\n" +
+                    "            android:layout_height=\"120dp\"\n" +
+                    "            android:background=\"@drawable/rounded_back\"\n" +
+                    "            android:backgroundTint=\"#7C7C7C\"\n" +
+                    "            android:id=\"@+id/rlTitleBox2\">\n" +
+                    "\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvTitle4\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:layout_marginTop=\"57dp\"\n" +
+                    "                android:text=\"Количество шагов\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"10sp\" />\n" +
+                    "        </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <LinearLayout\n" +
+                    "            android:layout_width=\"match_parent\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:orientation=\"horizontal\"\n" +
+                    "            android:layout_centerInParent=\"true\"\n" +
+                    "            android:layout_toEndOf=\"@id/rlTitleBox2\">\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvWeek2\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Неделя\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvMonth2\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Месяц\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvYear2\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Год\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "            <TextView\n" +
+                    "                android:id=\"@+id/tvTotal2\"\n" +
+                    "                android:layout_width=\"wrap_content\"\n" +
+                    "                android:layout_height=\"wrap_content\"\n" +
+                    "                android:layout_centerHorizontal=\"true\"\n" +
+                    "                android:text=\"Итого\\n2тыс.\"\n" +
+                    "                android:textAlignment=\"center\"\n" +
+                    "                android:layout_margin=\"10dp\"\n" +
+                    "                android:textColor=\"#fff\"\n" +
+                    "                android:textSize=\"12sp\" />\n" +
+                    "\n" +
+                    "        </LinearLayout>\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "            android:text=\".>более\"\n" +
+                    "            android:textColor=\"#fff\"\n" +
+                    "            android:textSize=\"12sp\"\n" +
+                    "            android:layout_margin=\"10dp\"\n" +
+                    "\n" +
+                    "\n" +
+                    "            />\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "</LinearLayout>";
 
             return collections;
         } else {
