@@ -773,6 +773,103 @@ public class XRKToolsLib {
                     "    </LinearLayout>\n" +
                     "\n" +
                     "\n" +
+                    "</RelativeLayout>\n" +
+                    "" +
+                    "" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// layout\n" +
+                    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                    "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                    "    android:orientation=\"vertical\" android:layout_width=\"match_parent\"\n" +
+                    "   android:background=\"#000\"\n" +
+                    "    android:layout_height=\"match_parent\">\n" +
+                    "\n" +
+                    "\n" +
+                    "    <RelativeLayout\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"40dp\"\n" +
+                    "        android:id=\"@+id/rlNotMyMessage\"\n" +
+                    "        android:visibility=\"visible\">\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"1\"\n" +
+                    "            android:textColor=\"#2BBC77\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"20dp\"\n" +
+                    "            android:textSize=\"18sp\"\n" +
+                    "            android:id=\"@+id/tvPlace\"/>\n" +
+                    "\n" +
+                    "        <ImageView\n" +
+                    "            android:id=\"@+id/ivAvatar\"\n" +
+                    "            android:layout_width=\"60dp\"\n" +
+                    "            android:layout_height=\"60dp\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"15dp\"\n" +
+                    "            android:layout_toEndOf=\"@id/tvPlace\"\n" +
+                    "            android:src=\"@drawable/avatar\" />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"John Doe\"\n" +
+                    "            android:textColor=\"#2BBC77\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"20dp\"\n" +
+                    "            android:textSize=\"18sp\"\n" +
+                    "            android:layout_toEndOf=\"@id/ivAvatar\"\n" +
+                    "            android:id=\"@+id/tvName\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "            <ImageView\n" +
+                    "                android:layout_width=\"22dp\"\n" +
+                    "                android:layout_height=\"22dp\"\n" +
+                    "                android:layout_toEndOf=\"@id/tvName\"\n" +
+                    "                android:src=\"@mipmap/ic_launcher\"\n" +
+                    "                android:layout_centerVertical=\"true\"\n" +
+                    "                android:layout_marginStart=\"30dp\"\n" +
+                    "                android:id=\"@+id/ivWeather\"\n" +
+                    "                />\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\"112\"\n" +
+                    "            android:textColor=\"#2BBC77\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"20dp\"\n" +
+                    "            android:textSize=\"18sp\"\n" +
+                    "            android:layout_toEndOf=\"@id/ivWeather\"\n" +
+                    "            android:id=\"@+id/tvRate\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "        <TextView\n" +
+                    "            android:layout_width=\"wrap_content\"\n" +
+                    "            android:layout_height=\"wrap_content\"\n" +
+                    "            android:text=\">более\"\n" +
+                    "            android:textColor=\"#fff\"\n" +
+                    "            android:layout_centerVertical=\"true\"\n" +
+                    "            android:layout_marginStart=\"20dp\"\n" +
+                    "            android:textSize=\"14sp\"\n" +
+                    "            android:layout_margin=\"5dp\"\n" +
+                    "            android:layout_alignParentTop=\"true\"\n" +
+                    "            android:layout_alignParentEnd=\"true\"\n" +
+                    "\n" +
+                    "            android:id=\"@+id/tvMore\"/>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    </RelativeLayout>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
                     "</RelativeLayout>\n";
 
             return collections;
