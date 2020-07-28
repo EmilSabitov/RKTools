@@ -1940,9 +1940,9 @@ public class XRKToolsLib {
 
         if (toMD5(key).equals(hashKey)) {
 
-            DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
-            String date = df.format(Calendar.getInstance().getTime());
-            return df.toString();
+//            DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+//            String date = df.format(Calendar.getInstance().getTime());
+            return "Under construction";
         } else
             return null;
     }
@@ -2365,6 +2365,667 @@ public class XRKToolsLib {
                     "    }";
         }
         return "Error";
+    }
+
+
+    public String marginCounter(String key){
+        if (toMD5(key).equals(hashKey)){
+
+
+
+            return  "\n" +
+                    "Type emulator’s name\n" +
+                    "\n" +
+                    "implementation 'com.google.android.material:material:1.1.0'\n" +
+                    "\n" +
+                    "implementation 'com.google.code.gson:gson:2.6.2'\n" +
+                    "implementation 'com.squareup.retrofit2:retrofit:2.0.2'\n" +
+                    "implementation 'com.squareup.retrofit2:converter-gson:2.0.2'\n" +
+                    "\n" +
+                    "implementation 'com.jakewharton:butterknife:10.2.1'\n" +
+                    "annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'\n" +
+                    "\n" +
+                    "implementation 'de.hdodenhof:circleimageview:3.1.0'\n" +
+                    "\n" +
+                    "implementation 'com.squareup.picasso:picasso:2.71828'\n" +
+                    "implementation 'com.android.volley:volley:1.1.1'\n" +
+                    "implementation 'com.baoyz.swipemenulistview:library:1.3.0'\n" +
+                    "\n" +
+                    "implementation 'com.squareup.retrofit2:converter-simplexml:2.7.1'\n" +
+                    "\n" +
+                    "implementation 'com.squareup.okhttp3:logging-interceptor:4.7.0'\n" +
+                    "\n" +
+                    "\n" +
+                    "//// EDIT MANIFEST\n" +
+                    "////\n" +
+                    "////\n" +
+                    "////\n" +
+                    "////////// BUILD.GRADLE\n" +
+                    "allprojects {\n" +
+                    "    repositories {\n" +
+                    "        google()\n" +
+                    "        jcenter()\n" +
+                    "        maven { url 'https://jitpack.io' }\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "/// shared transition\n" +
+                    "\n" +
+                    "In styles:\u2028<item name=\"android:windowActivityTransitions\">true</item>\n" +
+                    "\n" +
+                    "In xml:\n" +
+                    "transitionname=“”\n" +
+                    "\n" +
+                    "in activity А:\n" +
+                    "\u2028Intent intent = new Intent(getApplicationContext(), AuthorInfo.class);\n" +
+                    "\n" +
+                    "Pair[] pairs = new Pair[2];\n" +
+                    "pairs[0] = new Pair<View, String>(circleImageView, \"image\");\n" +
+                    "pairs[1] = new Pair<View, String>(tvName, \"name\");\n" +
+                    "\n" +
+                    "ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,\n" +
+                    "        pairs);\n" +
+                    "startActivity(intent,options.toBundle());\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// Image from url\n" +
+                    "Picasso. get(). load(\"http://i.imgur.com/DvpvklR.png\").into(circleImageView);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// Read from HTML\n" +
+                    "Html.fromHtml(string, Html.FROM_HTML_MODE_COMPACT)\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// Create table\n" +
+                    "sqLiteDatabase.execSQL(\"CREATE TABLE IF NOT EXISTS `news` (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title TEXT, excerpt TEXT, date TEXT)\");\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// Add to table\n" +
+                    "sqLiteDatabase = getApplicationContext().openOrCreateDatabase(\"app.db\", MODE_PRIVATE, null);\n" +
+                    "\n" +
+                    "for (int i = 0; i <data.size() ; i++) {\n" +
+                    "\n" +
+                    "    ContentValues cv = new ContentValues();\n" +
+                    "    cv.put(\"title\",data.get(i).getTitle().getRendered());\n" +
+                    "    cv.put(\"excerpt\",data.get(i).getExcerpt().getRendered());\n" +
+                    "    cv.put(\"date\",data.get(i).getDate());\n" +
+                    "    sqLiteDatabase.insert(\"news\",null,cv);\n" +
+                    "}\n" +
+                    "sqLiteDatabase.close();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "// Read from base\n" +
+                    "  sqLiteDatabase = getApplicationContext().openOrCreateDatabase(\"app.db\", MODE_PRIVATE, null);\n" +
+                    "        sqLiteDatabase.execSQL(\"CREATE TABLE IF NOT EXISTS `news` (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title TEXT, excerpt TEXT, date TEXT)\");\n" +
+                    "\n" +
+                    "\n" +
+                    "//        Check for data in Base\n" +
+                    "        Cursor q = sqLiteDatabase.rawQuery(\"SELECT * FROM `news`\", null);\n" +
+                    "        if (q.moveToFirst()) {\n" +
+                    "\n" +
+                    "            Toast.makeText(this, \"С базы\", Toast.LENGTH_SHORT).show();\n" +
+                    "            do {\n" +
+                    "                String sTitle = q.getString(1);\n" +
+                    "                String sExcerpt = q.getString(2);\n" +
+                    "                String date = q.getString(3);\n" +
+                    "\n" +
+                    "                Title title = new Title(sTitle);\n" +
+                    "                Excerpt excerpt = new Excerpt(sExcerpt);\n" +
+                    "\n" +
+                    "                news.add(new News(date, title, excerpt));\n" +
+                    "\n" +
+                    "            } while (q.moveToNext());\n" +
+                    "\n" +
+                    "            newsAdapter = new NewsAdapter(news, getApplicationContext());\n" +
+                    "            rv.setAdapter(newsAdapter);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        }else {\n" +
+                    "            Toast.makeText(this, \"С сервера\", Toast.LENGTH_SHORT).show();\n" +
+                    "            refreshRL();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        q.close();\n" +
+                    "        sqLiteDatabase.close();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "/// ApiInterface\n" +
+                    "\n" +
+                    "\n" +
+                    "￼\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// RETROFIT\n" +
+                    "//////////////// ApiInterface\n" +
+                    "public interface ApiInterface {\n" +
+                    "\n" +
+                    "    @GET(\"api/students\")\n" +
+                    "    Call<List<String>> getStudents();\n" +
+                    "    @GET(\"api/post\")\n" +
+                    "    Call<List<String>> getStudentsByFL(@Query(\"sym\") String letter, @Query(\"facultyId\") Integer facultyId);\n" +
+                    "    @POST(\"api/students\")\n" +
+                    "    Call<Student> createStudent(@Body Student student);\n" +
+                    "    @GET(\"api/post/savestudent\")\n" +
+                    "    Call<Student> createStudentAsGet(@Query(\"Name\") String name, @Query(\"Email\") String email, @Query(\"FacultyId\") Integer facultyId);\n" +
+                    "    @PUT(\"api/students/{id}\")\n" +
+                    "    Call<Student> changeStudent(@Path(\"id\") Integer id, @Body Student student);\n" +
+                    "    @DELETE(\"api/students/{id}\")\n" +
+                    "    Call<Void> deleteStudent(@Path(\"id\") int id);\n" +
+                    "\n" +
+                    "    @GET(\"api/test\")\n" +
+                    "    Call<List<Faculty>> getFaculties();\n" +
+                    "}\n" +
+                    "\n" +
+                    "//////////////// ApiClient\n" +
+                    "\n" +
+                    "public class ApiClient {\n" +
+                    "\n" +
+                    "    public static final String BASE_URL = \"http://vongu3-001-site1.ctempurl.com/\";\n" +
+                    "    private static Retrofit retrofit = null;\n" +
+                    "\n" +
+                    "    public static Retrofit getClient()\n" +
+                    "    {\n" +
+                    "        if(retrofit == null)\n" +
+                    "        {\n" +
+                    "            retrofit = new Retrofit.Builder()\n" +
+                    "                    .baseUrl(BASE_URL)\n" +
+                    "                    .addConverterFactory(GsonConverterFactory.create())\n" +
+                    "                    .build();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        return retrofit;\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////// MainActivity\n" +
+                    "//////////////// \n" +
+                    "\n" +
+                    "public class MainActivity extends AppCompatActivity {\n" +
+                    "\n" +
+                    "    ApiInterface apiService;\n" +
+                    "\n" +
+                    "    @BindView(R.id.rv)\n" +
+                    "    RecyclerView rv;\n" +
+                    "    @BindView(R.id.etName)\n" +
+                    "    EditText etName;\n" +
+                    "    @BindView(R.id.etEmail)\n" +
+                    "    EditText etEmail;\n" +
+                    "    @BindView(R.id.etFacultyId)\n" +
+                    "    EditText etFacultyId;\n" +
+                    "    StudentAdapter adapter;\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "        setContentView(R.layout.activity_main);\n" +
+                    "        ButterKnife.bind(this);\n" +
+                    "\n" +
+                    "        apiService = ApiClient.getClient().create(ApiInterface.class);\n" +
+                    "\n" +
+                    "        Call<List<Faculty>> call = apiService.getFaculties();\n" +
+                    "        call.enqueue(new Callback<List<Faculty>>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<List<Faculty>> call, Response<List<Faculty>> response) {\n" +
+                    "                List<Faculty> data = response.body();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<List<Faculty>> call, Throwable t) {\n" +
+                    "\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        RefreshRV();\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void RefreshRV() {\n" +
+                    "        Call<List<String>> call = apiService.getStudents();\n" +
+                    "        call.enqueue(new Callback<List<String>>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<List<String>> call, Response<List<String>> response) {\n" +
+                    "                List<String> data = response.body();\n" +
+                    "                adapter = new StudentAdapter(data, getApplicationContext());\n" +
+                    "                rv.setAdapter(adapter);\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<List<String>> call, Throwable t) {\n" +
+                    "\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void btnAdd_onClick(View view) {\n" +
+                    "\n" +
+                    "        String Name =etName.getText().toString();\n" +
+                    "        String Email =etEmail.getText().toString();\n" +
+                    "        Integer facultyId = Integer.parseInt(etFacultyId.getText().toString());\n" +
+                    "\n" +
+                    "        Call<Student> call = apiService.createStudentAsGet(Name, Email, facultyId);\n" +
+                    "        call.enqueue(new Callback<Student>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<Student> call, Response<Student> response) {\n" +
+                    "                RefreshRV();\n" +
+                    "                Toast.makeText(MainActivity.this, \"Пользователь добавлен! code:\" + String.valueOf(response.code()), Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<Student> call, Throwable t) {\n" +
+                    "                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  RECYCLERVIEW + CLICK\n" +
+                    "/////////////// XML\n" +
+                    "\n" +
+                    "<androidx.recyclerview.widget.RecyclerView\n" +
+                    "    android:id=\"@+id/rv\"\n" +
+                    "    android:layout_width=\"0dp\"\n" +
+                    "    android:layout_height=\"0dp\"\n" +
+                    "    app:layoutManager=\"androidx.recyclerview.widget.LinearLayoutManager\"\n" +
+                    "    app:layout_constraintBottom_toBottomOf=\"parent\"\n" +
+                    "    app:layout_constraintEnd_toEndOf=\"parent\"\n" +
+                    "    app:layout_constraintStart_toStartOf=\"parent\"\n" +
+                    "    app:layout_constraintTop_toTopOf=\"parent\"\n" +
+                    "    tools:listitem=\"@layout/item_news\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "/////////////// Adapter\n" +
+                    "public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {\n" +
+                    "\n" +
+                    "//    private final View.OnClickListener mOnCliclKistener;\n" +
+                    "\n" +
+                    "    List<News> news;\n" +
+                    "    Context context;\n" +
+                    "\n" +
+                    "//    OnClick\n" +
+                    "    private OnItemClickListener mListener;\n" +
+                    "    public interface OnItemClickListener{\n" +
+                    "        void onItemClick(int position);\n" +
+                    "    }\n" +
+                    "    public void setOnItemClickListener(OnItemClickListener listener){\n" +
+                    "        mListener = listener;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    public NewsAdapter(List<News> news, Context context) {\n" +
+                    "        this.news = news;\n" +
+                    "        this.context = context;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @NonNull\n" +
+                    "    @Override\n" +
+                    "    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\n" +
+                    "        View view = LayoutInflater.from(context).inflate(R.layout.item_news, parent, false);\n" +
+                    "        return new NewsViewHolder(view);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {\n" +
+                    "        holder.tvTitle.setText(news.get(position).getTitle().getRendered());\n" +
+                    "        holder.tvText.setText(Html.fromHtml(news.get(position).getExcerpt().getRendered(), Html.FROM_HTML_MODE_COMPACT));\n" +
+                    "        holder.tvDate.setText(news.get(position).getDate());\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public int getItemCount() {\n" +
+                    "        return news.size();\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public class NewsViewHolder extends RecyclerView.ViewHolder {\n" +
+                    "\n" +
+                    "        TextView tvTitle;\n" +
+                    "        TextView tvText;\n" +
+                    "        TextView tvDate;\n" +
+                    "\n" +
+                    "        public NewsViewHolder(@NonNull View itemView) {\n" +
+                    "            super(itemView);\n" +
+                    "            tvTitle = itemView.findViewById(R.id.tvTitle);\n" +
+                    "            tvText = itemView.findViewById(R.id.tvText);\n" +
+                    "            tvDate = itemView.findViewById(R.id.tvDate);\n" +
+                    "\n" +
+                    "            itemView.setOnClickListener(new View.OnClickListener() {\n" +
+                    "                @Override\n" +
+                    "                public void onClick(View view) {\n" +
+                    "                    if (mListener!=null){\n" +
+                    "                        int position = getAdapterPosition();\n" +
+                    "                        if (position!= RecyclerView.NO_POSITION){\n" +
+                    "                            mListener.onItemClick(position);\n" +
+                    "                        }\n" +
+                    "                    }\n" +
+                    "                }\n" +
+                    "            });\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "}\n" +
+                    "\n" +
+                    "/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Json VOLLEY\n" +
+                    " private void sendRequest() {\n" +
+                    "        String url = \"http://PUTURL_PUTURL\";\n" +
+                    "        JSONObject jsonObject = new JSONObject();\n" +
+                    "        try {\n" +
+                    "            jsonObject.put(\"categories\", \"12\");\n" +
+                    "//            jsonObject.put(\"per_page\", \"100\");\n" +
+                    "            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, jsonObject\n" +
+                    "                    , new Response.Listener<JSONObject>() {\n" +
+                    "                @Override\n" +
+                    "                public void onResponse(JSONObject response) {\n" +
+                    "                    Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();\n" +
+                    "\n" +
+                    "                }\n" +
+                    "            }, new Response.ErrorListener() {\n" +
+                    "                @Override\n" +
+                    "                public void onErrorResponse(VolleyError error) {\n" +
+                    "                    Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();\n" +
+                    "                }\n" +
+                    "            }){\n" +
+                    "                @Override\n" +
+                    "                protected Map<String, String> getParams() throws AuthFailureError {\n" +
+                    "                    Map<String, String> params = new HashMap<>();\n" +
+                    "                    return params;\n" +
+                    "                }\n" +
+                    "            };\n" +
+                    "\n" +
+                    "            RequestQueue requestQueue = Volley.newRequestQueue(this);\n" +
+                    "            requestQueue.add(jsonObjectRequest);\n" +
+                    "            requestQueue.start();\n" +
+                    "        } catch (Exception e) {\n" +
+                    "            e.printStackTrace();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////// Swipe\n" +
+                    "\n" +
+                    "\n" +
+                    "////// XML:\n" +
+                    "<com.baoyz.swipemenulistview.SwipeMenuListView\n" +
+                    "        android:id=\"@+id/listView\"\n" +
+                    "        android:layout_width=\"match_parent\"\n" +
+                    "        android:layout_height=\"match_parent\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "//////// CODE:\u2028\u2028SwipeMenuCreator creator = new SwipeMenuCreator() {\n" +
+                    "\n" +
+                    "\t@Override\n" +
+                    "\tpublic void create(SwipeMenu menu) {\n" +
+                    "\t\t// create \"open\" item\n" +
+                    "\t\tSwipeMenuItem openItem = new SwipeMenuItem(\n" +
+                    "\t\t\t\tgetApplicationContext());\n" +
+                    "\t\t// set item background\n" +
+                    "\t\topenItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,\n" +
+                    "\t\t\t\t0xCE)));\n" +
+                    "\t\t// set item width\n" +
+                    "\t\topenItem.setWidth(dp2px(90));\n" +
+                    "\t\t// set item title\n" +
+                    "\t\topenItem.setTitle(\"Open\");\n" +
+                    "\t\t// set item title fontsize\n" +
+                    "\t\topenItem.setTitleSize(18);\n" +
+                    "\t\t// set item title font color\n" +
+                    "\t\topenItem.setTitleColor(Color.WHITE);\n" +
+                    "\t\t// add to menu\n" +
+                    "\t\tmenu.addMenuItem(openItem);\n" +
+                    "\n" +
+                    "\t\t// create \"delete\" item\n" +
+                    "\t\tSwipeMenuItem deleteItem = new SwipeMenuItem(\n" +
+                    "\t\t\t\tgetApplicationContext());\n" +
+                    "\t\t// set item background\n" +
+                    "\t\tdeleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,\n" +
+                    "\t\t\t\t0x3F, 0x25)));\n" +
+                    "\t\t// set item width\n" +
+                    "\t\tdeleteItem.setWidth(dp2px(90));\n" +
+                    "\t\t// set a icon\n" +
+                    "\t\tdeleteItem.setIcon(R.drawable.ic_delete);\n" +
+                    "\t\t// add to menu\n" +
+                    "\t\tmenu.addMenuItem(deleteItem);\n" +
+                    "\t}\n" +
+                    "};\n" +
+                    "\n" +
+                    "// set creator\n" +
+                    "listView.setMenuCreator(creator);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Swipe Refresh\u2028\u2028PUT ABOVE YOUR CONSTRUCTION SWIPEREFRESHLAYOUT\n" +
+                    "\n" +
+                    "CODE:\n" +
+                    "\n" +
+                    "swipeRefreshLayout = findViewById(R.id.refresh);\n" +
+                    "swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onRefresh() {\n" +
+                    "        Toast.makeText(MainActivity.this, \"Refreshed\", Toast.LENGTH_SHORT).show();\n" +
+                    "        swipeRefreshLayout.setRefreshing(false);\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// REMOVE STATUS BAR\n" +
+                    "        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,\n" +
+                    "        WindowManager.LayoutParams.FLAG_FULLSCREEN);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// XML PARSING RETROFIT\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// API CLIENT\n" +
+                    "public class ApiClient {\n" +
+                    "\n" +
+                    "    public static final String BASE_URL = \"http://www.cbr.ru/scripts/\";\n" +
+                    "    private static Retrofit retrofit = null;\n" +
+                    "\n" +
+                    "    public static Retrofit getClient()\n" +
+                    "    {\n" +
+                    "        if(retrofit == null)\n" +
+                    "        {\n" +
+                    "            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();\n" +
+                    "            logging.setLevel(HttpLoggingInterceptor.Level.BODY);\n" +
+                    "            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();\n" +
+                    "            httpClient.addInterceptor(logging);\n" +
+                    "            retrofit = new Retrofit.Builder()\n" +
+                    "                    .baseUrl(BASE_URL)\n" +
+                    "                    .client(httpClient.build())\n" +
+                    "                    .addConverterFactory(SimpleXmlConverterFactory.create())\n" +
+                    "                    .build();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        return retrofit;\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// API INTERFACE\n" +
+                    "public interface ApiInterface {\n" +
+                    "    @GET(\"XML_daily.asp\")\n" +
+                    "    Call<ListCur> getCur();\n" +
+                    "}\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// ListCur\u2028\n" +
+                    "@Root(name = \"ValCurs\")\n" +
+                    "public class ListCur {\n" +
+                    "    @ElementList(inline = true)\n" +
+                    "    List<Cur> curList;\n" +
+                    "\n" +
+                    "    @Attribute(required = false)\n" +
+                    "    private String Date;\n" +
+                    "\n" +
+                    "    @Attribute(required = false)\n" +
+                    "    private String name;\n" +
+                    "\n" +
+                    "    public List<Cur> getCurList() {\n" +
+                    "        return curList;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setCurList(List<Cur> curList) {\n" +
+                    "        this.curList = curList;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public String getDate() {\n" +
+                    "        return Date;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setDate(String date) {\n" +
+                    "        Date = date;\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// Cur\n" +
+                    "\n" +
+                    "@Root(name = \"Valute\")\n" +
+                    "public class Cur {\n" +
+                    "    @Element(name = \"NumCode\")\n" +
+                    "    private Integer code;\n" +
+                    "    @Element(name = \"CharCode\")\n" +
+                    "    private String charcode;\n" +
+                    "    @Element(name = \"Nominal\")\n" +
+                    "    private Integer nominal;\n" +
+                    "    @Element(name = \"Name\")\n" +
+                    "    private String name;\n" +
+                    "    @Element(name = \"Value\")\n" +
+                    "    private String value;\n" +
+                    "\n" +
+                    "    @Attribute(required = false)\n" +
+                    "    private String ID;\n" +
+                    "\n" +
+                    "\n" +
+                    "    public Integer getCode() {\n" +
+                    "        return code;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setCode(Integer code) {\n" +
+                    "        this.code = code;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public String getCharcode() {\n" +
+                    "        return charcode;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setCharcode(String charcode) {\n" +
+                    "        this.charcode = charcode;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public Integer getNominal() {\n" +
+                    "        return nominal;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setNominal(Integer nominal) {\n" +
+                    "        this.nominal = nominal;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public String getName() {\n" +
+                    "        return name;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setName(String name) {\n" +
+                    "        this.name = name;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public String getValue() {\n" +
+                    "        return value;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setValue(String value) {\n" +
+                    "        this.value = value;\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// MainActivity\n" +
+                    "\n" +
+                    "\n" +
+                    "public class MainActivity extends AppCompatActivity {\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "        setContentView(R.layout.activity_main);\n" +
+                    "\n" +
+                    "        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);\n" +
+                    "        Call<ListCur> call = apiService.getCur();\n" +
+                    "        call.enqueue(new Callback<ListCur>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<ListCur> call, Response<ListCur> response) {\n" +
+                    "                int i;\n" +
+                    "                ListCur data = response.body();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<ListCur> call, Throwable t) {\n" +
+                    "                Log.d(\"Error!!!!\", t.getMessage());\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////// GRADLE\n" +
+                    "\n" +
+                    "android {\n" +
+                    "    ….\n" +
+                    "\n" +
+                    "    compileOptions {\n" +
+                    "        sourceCompatibility JavaVersion.VERSION_1_8\n" +
+                    "        targetCompatibility JavaVersion.VERSION_1_8\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    defaultConfig {\n" +
+                    "      ….\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "dependencies {\n" +
+                    "    implementation fileTree(dir: 'libs', include: ['*.jar'])\n" +
+                    "\n" +
+                    "    implementation 'androidx.appcompat:appcompat:1.1.0'\n" +
+                    "    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'\n" +
+                    "    testImplementation 'junit:junit:4.12'\n" +
+                    "    androidTestImplementation 'androidx.test.ext:junit:1.1.1'\n" +
+                    "    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'\n" +
+                    "\n" +
+                    "    implementation 'com.squareup.retrofit2:retrofit:2.0.2'\n" +
+                    "    implementation 'com.squareup.retrofit2:converter-simplexml:2.7.1'\n" +
+                    "\n" +
+                    "    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.0'\n" +
+                    "}\n" +
+                    "\n";
+        }
+        else return "0dp";
     }
 
 
