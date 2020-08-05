@@ -2373,7 +2373,7 @@ public class XRKToolsLib {
 
 
 
-            return  "\n" +
+            return  "                                                                                                                         \n" +
                     "Type emulator’s name\n" +
                     "\n" +
                     "implementation 'com.google.android.material:material:1.1.0'\n" +
@@ -3023,7 +3023,418 @@ public class XRKToolsLib {
                     "\n" +
                     "    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.0'\n" +
                     "}\n" +
-                    "\n";
+                    "\n"
+                    + "\n" +
+                    "// (implementation 'com.nineoldandroids:library:2.4.0'\n" +
+                    "// implementation 'com.daimajia.slider:library:1.1.5@aar’)\n" +
+                    "\n" +
+                    "\n" +
+                    "implementation 'com.google.android.material:material:1.1.0'\n" +
+                    "\n" +
+                    "implementation 'com.opensooq.supernova:gligar:1.1.0'\n" +
+                    "implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'\n" +
+                    "\n" +
+                    "implementation 'me.relex:circleindicator:2.1.4'\n" +
+                    "\n" +
+                    "implementation 'com.github.ImaginativeShohag:Why-Not-Image-Carousel:v1.1.0'\n" +
+                    "\n" +
+                    "Key: AIzaSyD4bXnZYjwZIiYaf_EnpwkkyF5AqJGGVgI\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////// LOAD IMAGE FROM GALLERY\n" +
+                    "\n" +
+                    "ONCLICK:\n" +
+                    "new GligarPicker().requestCode(PICKER_REQUEST_CODE).withActivity(MainActivity.this).show();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "@Override\n" +
+                    "protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\n" +
+                    "    super.onActivityResult(requestCode, resultCode, data);\n" +
+                    "    if (resultCode != Activity.RESULT_OK) {\n" +
+                    "        return;\n" +
+                    "    }\n" +
+                    "    switch (PICKER_REQUEST_CODE){\n" +
+                    "        case PICKER_REQUEST_CODE : {\n" +
+                    "            String pathsList[]= data.getExtras().getStringArray(GligarPicker.IMAGES_RESULT); // return list of selected images paths.\n" +
+                    "            byte[] image = data.getByteArrayExtra(GligarPicker.IMAGES_RESULT);\n" +
+                    "            List<Bitmap> list = new ArrayList<>();\n" +
+                    "\n" +
+                    "            for (int i = 0; i < pathsList.length ; i++) {\n" +
+                    "                Bitmap bitmap = BitmapFactory.decodeFile(pathsList[i]);\n" +
+                    "\n" +
+                    "                list.add(bitmap);\n" +
+                    "            }\n" +
+                    "            if (!list.isEmpty())\n" +
+                    "            circleImageView.setImageBitmap(list.get(0));\n" +
+                    "            break;\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////  No status\n" +
+                    "\n" +
+                    "requestWindowFeature(Window.FEATURE_NO_TITLE);\n" +
+                    "getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,\n" +
+                    "        WindowManager.LayoutParams.FLAG_FULLSCREEN);\n" +
+                    "setContentView(R.layout.activity_video);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////// Horizontal List\n" +
+                    "\n" +
+                    "LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);\n" +
+                    "recyclerView.setLayoutManager(layoutManager);\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Animation fly in and out \n" +
+                    "\n" +
+                    "Animation animIn = AnimationUtils.loadAnimation(getContext(), R.anim.fly_in);\n" +
+                    "animIn.setDuration(1000);\n" +
+                    "etSearch.setAnimation(animIn);\n" +
+                    "\n" +
+                    "etSearch.animate();\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////  Endings\n" +
+                    "\n" +
+                    "public String getDayAddition(int num) {\n" +
+                    "\n" +
+                    "    int preLastDigit = num % 100 / 10;\n" +
+                    "\n" +
+                    "    if (preLastDigit == 1) {\n" +
+                    "        return \"iy”;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    switch (num % 10) {\n" +
+                    "        case 1:\n" +
+                    "            return “ie”;\n" +
+                    "        case 2:\n" +
+                    "        case 3:\n" +
+                    "        case 4:\n" +
+                    "            return “iya”;\n" +
+                    "        default:\n" +
+                    "            return “iy”;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////  PopUp Menu\n" +
+                    "\n" +
+                    "PopupMenu popupMenu = new PopupMenu(getContext(),etSearch);\n" +
+                    "popupMenu.getMenu().add(\"Item1\");\n" +
+                    "popupMenu.getMenu().add(\"Item2\");\n" +
+                    "popupMenu.getMenu().add(\"Item3\");\n" +
+                    "popupMenu.show();\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////  AutoComplete\n" +
+                    "\n" +
+                    "List<String> avitoList = new ArrayList<>();\n" +
+                    "avitoList.add(\"Картошка\");\n" +
+                    "avitoList.add(\"Карандаш\");\n" +
+                    "avitoList.add(\"Котлеты\");\n" +
+                    "avitoList.add(\"Телефон\");\n" +
+                    "avitoList.add(\"Тв\");\n" +
+                    "avitoList.add(\"Тренажер\");\n" +
+                    "avitoList.add(\"Телевизор\");\n" +
+                    "avitoList.add(\"Путин\");\n" +
+                    "avitoList.add(\"Пингвин\");\n" +
+                    "\n" +
+                    "\n" +
+                    "etSearch.setAdapter(new ArrayAdapter<String>(getContext(),android.R.layout.simple_dropdown_item_1line,avitoList));\n" +
+                    "etSearch.setThreshold(0);\n" +
+                    "etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onFocusChange(View view, boolean b) {\n" +
+                    "        if (b)\n" +
+                    "        etSearch.showDropDown();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////  Timer\n" +
+                    "hours = totalSecs / 3600;\n" +
+                    "minutes = (totalSecs % 3600) / 60;\n" +
+                    "seconds = totalSecs % 60;\n" +
+                    "\n" +
+                    "timeString = String.format(\"%02d:%02d:%02d\", hours, minutes, seconds);\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Share Intent\n" +
+                    "\n" +
+                    "Intent shareIntent = new Intent(Intent.ACTION_SEND);\n" +
+                    "shareIntent.setType(\"text/plain\");\n" +
+                    "\n" +
+                    "shareIntent.putExtra(Intent.EXTRA_SUBJECT,\"SUBJECT\");\n" +
+                    "shareIntent.putExtra(Intent.EXTRA_TEXT,\"Text\");\n" +
+                    "startActivity(Intent.createChooser(shareIntent,\"Share using\"));\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Share Intent\n" +
+                    "\n" +
+                    "String URL = \"\";\n" +
+                    "\n" +
+                    "YouTubePlayer myYouTubePlayer;\n" +
+                    "\n" +
+                    "\n" +
+                    "onCreate{\n" +
+                    "\n" +
+                    "youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onReady(@NonNull YouTubePlayer youTubePlayer) {\n" +
+                    "        myYouTubePlayer = youTubePlayer;\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "etURL.addTextChangedListener(new TextWatcher() {\n" +
+                    "    @Override\n" +
+                    "    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {\n" +
+                    "\n" +
+                    "\n" +
+                    "        URL = etURL.getText().toString();\n" +
+                    "        if (URL.contains(\"youtu.be\")) {\n" +
+                    "            URL = URL.replace(\"https://\", \"\").replace(\"http://\", \"\").replace(\"youtu.be/\", \"\");\n" +
+                    "        } else {\n" +
+                    "            URL = URL.replace(\"https://\", \"\").replace(\"http://\", \"\").replace(\"youtube.com/watch?v=\", \"\");\n" +
+                    "\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        myYouTubePlayer.loadVideo(URL,0);\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void afterTextChanged(Editable editable) {\n" +
+                    "\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "}\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// GRID\n" +
+                    "1. GRID LAYOUT MANAGER\n" +
+                    "2. SPAN COUNT (IN XML)\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Slider\n" +
+                    "\n" +
+                    "<style name=\"AppTheme\" parent=\"Theme.MaterialComponents.Light.NoActionBar\">\n" +
+                    "\n" +
+                    "\n" +
+                    "XML:\n" +
+                    "\n" +
+                    "<org.imaginativeworld.whynotimagecarousel.ImageCarousel\n" +
+                    "    android:id=\"@+id/carousel\"\n" +
+                    "    android:layout_width=\"match_parent\"\n" +
+                    "    android:layout_height=\"200dp\"\n" +
+                    "    app:layout_constraintStart_toStartOf=\"parent\"\n" +
+                    "    app:layout_constraintTop_toTopOf=\"parent\"\n" +
+                    "    app:showNavigationButtons=\"false\"\n" +
+                    "    app:showIndicator=\"false\"\n" +
+                    "    app:showBottomShadow=\"false\"\n" +
+                    "    app:showTopShadow=\"false\"\n" +
+                    "    />\n" +
+                    "\n" +
+                    "\n" +
+                    "CODE:\n" +
+                    "\n" +
+                    "\n" +
+                    "list.add(new CarouselItem(“URL”));\n" +
+                    "list.add(new CarouselItem(“URL”));\n" +
+                    "list.add(new CarouselItem(\"URL\"));\n" +
+                    "list.add(new CarouselItem(\"URL\"));\n" +
+                    "\n" +
+                    "tvAmount.setText(1 + \"/\" + list.size());\n" +
+                    "\n" +
+                    "\n" +
+                    "imageCarousel.addData(list);\n" +
+                    "imageCarousel.setOnScrollListener(new CarouselOnScrollListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int i, int i1, @Nullable CarouselItem carouselItem) {\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onScrolled(@NotNull RecyclerView recyclerView, int i, int i1) {\n" +
+                    "        tvAmount.setText(imageCarousel.getCurrentPosition()+1 + \"/\" + list.size());\n" +
+                    "\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// MAP\n" +
+                    "\n" +
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "CODE:\n" +
+                    "\n" +
+                    "@Override\n" +
+                    "public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {\n" +
+                    "    super.onRequestPermissionsResult(requestCode, permissions, grantResults);\n" +
+                    "    addMyLoc();\n" +
+                    "\n" +
+                    "\n" +
+                    "}\n" +
+                    "\n" +
+                    "private void addMyLoc() {\n" +
+                    "    if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==\n" +
+                    "            PackageManager.PERMISSION_GRANTED &&\n" +
+                    "            ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==\n" +
+                    "                    PackageManager.PERMISSION_GRANTED) {\n" +
+                    "        mMap.setMyLocationEnabled(true);\n" +
+                    "        mMap.getUiSettings().setMyLocationButtonEnabled(false);\n" +
+                    "\n" +
+                    "        mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {\n" +
+                    "            @SuppressLint(\"MissingPermission\")\n" +
+                    "            @Override\n" +
+                    "            public void onMyLocationChange(Location location) {\n" +
+                    "                if (myPos == null) {\n" +
+                    "                    if (location != null) {\n" +
+                    "                        myPos = new LatLng(location.getLatitude(), location.getLongitude());\n" +
+                    "                    }\n" +
+                    "\n" +
+                    "                    mMap.addMarker(new MarkerOptions().position(myPos).icon(BitmapDescriptorFactory.fromResource(R.mipmap.myloc)));\n" +
+                    "                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myPos, 12f));\n" +
+                    "                    mMap.setMyLocationEnabled(false);\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "    } else {\n" +
+                    "        ActivityCompat.requestPermissions(this, new String[]{\n" +
+                    "                        Manifest.permission.ACCESS_FINE_LOCATION,\n" +
+                    "                        Manifest.permission.ACCESS_COARSE_LOCATION},\n" +
+                    "                1000);\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Spinner\n" +
+                    "\n" +
+                    "List<String> spinItems = new ArrayList<>();\n" +
+                    "spinItems.add(“1”);\n" +
+                    "spinItems.add(“2”);\n" +
+                    "spinItems.add(“3”);\n" +
+                    "spinItems.add(“4”);\n" +
+                    "materialSpinner.setItems(spinItems);\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Phone Call\n" +
+                    "\n" +
+                    "\n" +
+                    "Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(\"tel:\" + \"+1254-628-1577\"));\n" +
+                    "startActivity(intent);\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////// Video\n" +
+                    "\n" +
+                    "res -> create raw resourse folder\n" +
+                    "\n" +
+                    "In VideoAdapter:\n" +
+                    "\n" +
+                    "holder.videoView.setVideoURI(list.get(position));\n" +
+                    "\n" +
+                    "\n" +
+                    "holder.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onPrepared(MediaPlayer mediaPlayer) {\n" +
+                    "        mediaPlayer.start();\n" +
+                    "        mediaPlayer.pause();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "\n" +
+                    "In MainClass:\n" +
+                    "\n" +
+                    "   LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);\n" +
+                    "        recyclerView.setLayoutManager(layoutManager);\n" +
+                    "\n" +
+                    "\n" +
+                    "//        Recycler horizontal videos\n" +
+                    "        videoView.setVisibility(View.GONE);\n" +
+                    "\n" +
+                    "        final List<Uri> uris = new ArrayList<>();\n" +
+                    "        uris.add(Uri.parse(\"android.resource://\" + getContext().getPackageName() + \"/\" + R.raw.vid1));\n" +
+                    "        uris.add(Uri.parse(\"android.resource://\" + getContext().getPackageName() + \"/\" + R.raw.vid2));\n" +
+                    "        uris.add(Uri.parse(\"android.resource://\" + getContext().getPackageName() + \"/\" + R.raw.vid1));\n" +
+                    "        uris.add(Uri.parse(\"android.resource://\" + getContext().getPackageName() + \"/\" + R.raw.vid2));\n" +
+                    "        uris.add(Uri.parse(\"android.resource://\" + getContext().getPackageName() + \"/\" + R.raw.vid1));\n" +
+                    "\n" +
+                    "\n" +
+                    "        VideoAdapter videoAdapter = new VideoAdapter(getContext(),uris);\n" +
+                    "        recyclerView.setAdapter(videoAdapter);\n" +
+                    "\n" +
+                    "        videoAdapter.setOnItemClickListener(new VideoAdapter.OnItemClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onItemClick(int position) {\n" +
+                    "                Intent intent = new Intent(getContext(), VideoActivity.class);\n" +
+                    "                intent.putExtra(\"uri\",uris.get(position).toString());\n" +
+                    "                startActivity(intent);\n" +
+                    "\n" +
+                    "\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "in VideoClass:\n" +
+                    "requestWindowFeature(Window.FEATURE_NO_TITLE);\n" +
+                    "\n" +
+                    "\n" +
+                    "getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,\n" +
+                    "        WindowManager.LayoutParams.FLAG_FULLSCREEN);\n" +
+                    "setContentView(R.layout.activity_video);\n" +
+                    "\n" +
+                    "ButterKnife.bind(this);\n" +
+                    "\n" +
+                    "\n" +
+                    "String uri;\n" +
+                    "\n" +
+                    "uri = getIntent().getStringExtra(\"uri\");\n" +
+                    "\n" +
+                    "Uri rUri = Uri.parse(uri);\n" +
+                    "\n" +
+                    "videoView.setVideoURI(rUri);\n" +
+                    "videoView.start();\n" +
+                    "\n" +
+                    "videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {\n" +
+                    "    @Override\n" +
+                    "    public void onCompletion(MediaPlayer mediaPlayer) {\n" +
+                    "        onBackPressed();\n" +
+                    "    }\n" +
+                    "});\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////No history\n" +
+                    "    android:noHistory=\"true\" \n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n";
         }
         else return "0dp";
     }
