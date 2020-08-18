@@ -2394,6 +2394,7 @@ public class XRKToolsLib {
                     "implementation 'com.squareup.retrofit2:converter-simplexml:2.7.1'\n" +
                     "\n" +
                     "implementation 'com.squareup.okhttp3:logging-interceptor:4.7.0'\n" +
+                    " implementation 'com.github.iamBedant:OutlineTextView:1.0.5'\n" +
                     "\n" +
                     "\n" +
                     "//// EDIT MANIFEST\n" +
@@ -3434,7 +3435,700 @@ public class XRKToolsLib {
                     "    android:noHistory=\"true\" \n" +
                     "\n" +
                     "\n" +
-                    "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n";
+                    "\n" +
+                    "//////////////no shadow button\n" +
+                    "\n" +
+                    "stateListAnimator =  @null\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////// ADD NEW AD\n" +
+                    "//////// API INTERFACE\n" +
+                    "\n" +
+                    "@Multipart\n" +
+                    "@POST(\"api/AddAds\")\n" +
+                    "Call<ResponseBody> uploadMultipleFilesDynamic(\n" +
+                    "        @Part(\"name\") RequestBody name,\n" +
+                    "        @Part(\"categoryId\") RequestBody categoryId,\n" +
+                    "        @Part(\"price\") RequestBody price,\n" +
+                    "        @Part(\"userId\") RequestBody userId,\n" +
+                    "        @Part(\"description\") RequestBody test_desc,\n" +
+                    "        @Part(\"conditionId\") RequestBody conditionId,\n" +
+                    "        @Part(\"typeId\") RequestBody typeId,\n" +
+                    "        @Part(\"communication\") RequestBody communication,\n" +
+                    "        @Part List<MultipartBody.Part> parts\n" +
+                    "\n" +
+                    ");\n" +
+                    "\n" +
+                    "\n" +
+                    "////////////////////////////////// MainActivity\n" +
+                    "\n" +
+                    "\n" +
+                    "    private static final int CS_ACTIVITY_CHOOSE_FILE = 1235;\n" +
+                    "\n" +
+                    "    @BindView(R.id.ivPhoto)\n" +
+                    "    ImageView ivAvatar;\n" +
+                    "\n" +
+                    "    @BindView(R.id.etName)\n" +
+                    "    EditText etName;\n" +
+                    "\n" +
+                    "    @BindView(R.id.etMetro)\n" +
+                    "    EditText etMetro;\n" +
+                    "\n" +
+                    "    @BindView(R.id.btnEdit)\n" +
+                    "    Button btnEdit;\n" +
+                    "\n" +
+                    "    Uri uri;\n" +
+                    "    File originalFile;\n" +
+                    "    List<Uri> fileUris;\n" +
+                    "    ApiInterface apiService;\n" +
+                    "\n" +
+                    "    List<File> images;\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "        setContentView(R.layout.activity_main);\n" +
+                    "        ButterKnife.bind(this);\n" +
+                    "\n" +
+                    "\n" +
+                    "        apiService = ApiClient.getClient().create(ApiInterface.class);\n" +
+                    "\n" +
+                    "\n" +
+                    "        ivAvatar.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "                btnImageFromGallery();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void btnEditClick(View view) {\n" +
+                    "        btnSendFile();\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    private void btnImageFromGallery() {\n" +
+                    "\n" +
+                    "        Intent intent = new Intent();\n" +
+                    "        intent.setType(\"image/*\");\n" +
+                    "        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "        intent.setAction(Intent.ACTION_GET_CONTENT);\n" +
+                    "        startActivityForResult(Intent.createChooser(intent,\"Select Picture\"), CS_ACTIVITY_CHOOSE_FILE);\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private void btnSendFile() {\n" +
+                    "\n" +
+                    "        List<MultipartBody.Part> parts = new ArrayList<>();\n" +
+                    "        for (int i = 0; i < fileUris.size(); i++) {\n" +
+                    "            parts.add(prepareFilePart(\"images\", fileUris.get(i),i));\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        Call<ResponseBody> call = apiService.uploadMultipleFilesDynamic(\n" +
+                    "                createPartFromString(etName.getText().toString()),\n" +
+                    "                createPartFromString(\"1\"),\n" +
+                    "                createPartFromString(\"10000\"),\n" +
+                    "                createPartFromString(\"2\"),\n" +
+                    "                createPartFromString(etMetro.getText().toString()),\n" +
+                    "                createPartFromString(\"1\"),\n" +
+                    "                createPartFromString(\"1\"),\n" +
+                    "                createPartFromString(\"test_communication\")\n" +
+                    "\n" +
+                    "\n" +
+                    "                , parts);\n" +
+                    "\n" +
+                    "        call.enqueue(new Callback<ResponseBody>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {\n" +
+                    "                Toast.makeText(MainActivity.this, \" \" + response.code(), Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<ResponseBody> call, Throwable t) {\n" +
+                    "                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri, int i) {\n" +
+                    "//        create RequestBody instance from file\n" +
+                    "        RequestBody requestFile = RequestBody.create(\n" +
+                    "                MediaType.parse(getContentResolver().getType(fileUri)),\n" +
+                    "                images.get(i)\n" +
+                    "        );\n" +
+                    "        // MultipartBody.Part is used to send also the actual file name\n" +
+                    "\n" +
+                    "        return MultipartBody.Part.createFormData(partName, images.get(i).getName(), requestFile);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "    private RequestBody createPartFromString(String descriptionString) {\n" +
+                    "        return RequestBody.create(MultipartBody.FORM, descriptionString);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\n" +
+                    "        super.onActivityResult(requestCode, resultCode, data);\n" +
+                    "        if (resultCode == Activity.RESULT_OK && data != null) {\n" +
+                    "\n" +
+                    "\n" +
+                    "            fileUris = new ArrayList<>();\n" +
+                    "            ClipData cd = data.getClipData();\n" +
+                    "            images = new ArrayList<>();\n" +
+                    "            int count=0;\n" +
+                    "\n" +
+                    "            if (cd == null) { // 1 image\n" +
+                    "                Uri uri = data.getData();\n" +
+                    "                fileUris.add(uri);\n" +
+                    "                count=1;\n" +
+                    "\n" +
+                    "            } else { // many images\n" +
+                    "\n" +
+                    "\n" +
+                    "                for (int i = 0; i < data.getClipData().getItemCount(); i++) {\n" +
+                    "                    uri = data.getClipData().getItemAt(i).getUri();\n" +
+                    "                    fileUris.add(uri);\n" +
+                    "                    count++;\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            for (int i = 0; i <count ; i++) {\n" +
+                    "\n" +
+                    "                try {\n" +
+                    "                   File photoFile = null;\n" +
+                    "                    try {\n" +
+                    "                        photoFile = createImageFile();\n" +
+                    "                    } catch (IOException ex) {\n" +
+                    "                        Log.d(\"TAG\", \"Error occurred while creating the file\");\n" +
+                    "                    }\n" +
+                    "\n" +
+                    "                    InputStream inputStream = getContentResolver().openInputStream(fileUris.get(i));\n" +
+                    "                    FileOutputStream fileOutputStream = new FileOutputStream(photoFile);\n" +
+                    "                    // Copying\n" +
+                    "                    copyStream(inputStream, fileOutputStream);\n" +
+                    "                    fileOutputStream.close();\n" +
+                    "                    inputStream.close();\n" +
+                    "\n" +
+                    "                    images.add(photoFile);\n" +
+                    "\n" +
+                    "                } catch (Exception e) {\n" +
+                    "                    Log.d(\"TAG\", \"onActivityResult: \" + e.toString());\n" +
+                    "                }\n" +
+                    "                System.out.println();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            System.out.println();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private File createImageFile() throws IOException {\n" +
+                    "        // Create an image file name\n" +
+                    "        String timeStamp = new SimpleDateFormat(\"yyyyMMdd_HHmmss\").format(new Date());\n" +
+                    "        String imageFileName = \"JPEG_\" + timeStamp + \"_\";\n" +
+                    "        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);\n" +
+                    "        File image = File.createTempFile(\n" +
+                    "                imageFileName,  /* prefix */\n" +
+                    "                \".jpg\",         /* suffix */\n" +
+                    "                storageDir      /* directory */\n" +
+                    "        );\n" +
+                    "\n" +
+                    "        // Save a file: path for use with ACTION_VIEW intents\n" +
+                    "        String mCurrentPhotoPath = image.getAbsolutePath();\n" +
+                    "        return image;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public static void copyStream(InputStream input, OutputStream output) throws IOException {\n" +
+                    "        byte[] buffer = new byte[1024];\n" +
+                    "        int bytesRead;\n" +
+                    "        while ((bytesRead = input.read(buffer)) != -1) {\n" +
+                    "            output.write(buffer, 0, bytesRead);\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// FROM CAMERA, GALLERY, DOWNLOADS\n" +
+                    "\n" +
+                    "\n" +
+                    "public interface ApiInterface {\n" +
+                    "\n" +
+                    "    @GET(\"/api/category/\")\n" +
+                    "    Call<List<Category>> getCategories();\n" +
+                    "\n" +
+                    "    @GET(\"api/userinfo/\")\n" +
+                    "    Call<List<User>> getUser(@Query(\"userId\") Integer id);\n" +
+                    "\n" +
+                    "    @Multipart\n" +
+                    "    @POST(\"api/AddAds\")\n" +
+                    "    Call<ResponseBody> uploadMultipleFilesDynamic(\n" +
+                    "            @Part(\"name\") RequestBody name,\n" +
+                    "            @Part(\"categoryId\") RequestBody categoryId,\n" +
+                    "            @Part(\"price\") RequestBody price,\n" +
+                    "            @Part(\"userId\") RequestBody userId,\n" +
+                    "            @Part(\"description\") RequestBody test_desc,\n" +
+                    "            @Part(\"conditionId\") RequestBody conditionId,\n" +
+                    "            @Part(\"typeId\") RequestBody typeId,\n" +
+                    "            @Part(\"communication\") RequestBody communication,\n" +
+                    "            @Part List<MultipartBody.Part> parts\n" +
+                    "\n" +
+                    "    );\n" +
+                    "\n" +
+                    "    @Multipart\n" +
+                    "    @PUT(\"api/EditProfile\")\n" +
+                    "    Call<ResponseBody> editProfile(\n" +
+                    "            @Part(\"Name\") RequestBody name,\n" +
+                    "            @Part(\"Metro\") RequestBody metro,\n" +
+                    "            @Part(\"Id\") RequestBody id,\n" +
+                    "            @Part List<MultipartBody.Part> parts\n" +
+                    "\n" +
+                    "    );\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "import androidx.annotation.NonNull;\n" +
+                    "import androidx.annotation.Nullable;\n" +
+                    "import androidx.appcompat.app.AlertDialog;\n" +
+                    "import androidx.appcompat.app.AppCompatActivity;\n" +
+                    "import androidx.core.content.FileProvider;\n" +
+                    "\n" +
+                    "import android.Manifest;\n" +
+                    "import android.app.Activity;\n" +
+                    "import android.content.ClipData;\n" +
+                    "import android.content.DialogInterface;\n" +
+                    "import android.content.Intent;\n" +
+                    "import android.content.pm.PackageManager;\n" +
+                    "import android.database.Cursor;\n" +
+                    "import android.graphics.Bitmap;\n" +
+                    "import android.media.MediaScannerConnection;\n" +
+                    "import android.net.Uri;\n" +
+                    "import android.os.Bundle;\n" +
+                    "import android.os.Environment;\n" +
+                    "import android.provider.MediaStore;\n" +
+                    "import android.provider.OpenableColumns;\n" +
+                    "import android.util.Log;\n" +
+                    "import android.view.View;\n" +
+                    "import android.widget.EditText;\n" +
+                    "import android.widget.ImageView;\n" +
+                    "import android.widget.TextView;\n" +
+                    "import android.widget.Toast;\n" +
+                    "\n" +
+                    "import java.io.ByteArrayOutputStream;\n" +
+                    "import java.io.File;\n" +
+                    "import java.io.FileOutputStream;\n" +
+                    "import java.io.IOException;\n" +
+                    "import java.io.InputStream;\n" +
+                    "import java.io.OutputStream;\n" +
+                    "import java.text.SimpleDateFormat;\n" +
+                    "import java.util.ArrayList;\n" +
+                    "import java.util.Calendar;\n" +
+                    "import java.util.Date;\n" +
+                    "import java.util.List;\n" +
+                    "\n" +
+                    "import butterknife.BindView;\n" +
+                    "import butterknife.ButterKnife;\n" +
+                    "import de.hdodenhof.circleimageview.CircleImageView;\n" +
+                    "import network.ApiClient;\n" +
+                    "import network.ApiInterface;\n" +
+                    "import okhttp3.MediaType;\n" +
+                    "import okhttp3.MultipartBody;\n" +
+                    "import okhttp3.RequestBody;\n" +
+                    "import okhttp3.ResponseBody;\n" +
+                    "import retrofit2.Call;\n" +
+                    "import retrofit2.Callback;\n" +
+                    "import retrofit2.Response;\n" +
+                    "\n" +
+                    "public class EditProfile extends AppCompatActivity {\n" +
+                    "\n" +
+                    "    private static final int CS_ACTIVITY_CHOOSE_FILE = 1001;\n" +
+                    "    private static final int CS_CAMERA = 1002;\n" +
+                    "    private static final int CS_DONWLOADS = 1003;\n" +
+                    "    @BindView(R.id.ivBack)\n" +
+                    "    ImageView ivBack;\n" +
+                    "\n" +
+                    "    @BindView(R.id.tvDone)\n" +
+                    "    TextView tvClose;\n" +
+                    "\n" +
+                    "\n" +
+                    "    @BindView(R.id.ivCamera)\n" +
+                    "    ImageView ivCamera;\n" +
+                    "\n" +
+                    "    @BindView(R.id.ivCameraBack)\n" +
+                    "    CircleImageView ivCameraBack;\n" +
+                    "\n" +
+                    "    @BindView(R.id.etName)\n" +
+                    "    EditText etName;\n" +
+                    "\n" +
+                    "    @BindView(R.id.etMetro)\n" +
+                    "    EditText etMetro;\n" +
+                    "\n" +
+                    "    ApiInterface apiService;\n" +
+                    "\n" +
+                    "    Uri uri;\n" +
+                    "    List<Uri> fileUris;\n" +
+                    "    List<File> images;\n" +
+                    "\n" +
+                    "    Integer id;\n" +
+                    "\n" +
+                    "    private static final int CAMERA_REQUEST_CODE = 100;\n" +
+                    "    private static final String IMAGE_DIRECTORY = \"/images\";\n" +
+                    "\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                    "        super.onCreate(savedInstanceState);\n" +
+                    "        setContentView(R.layout.activity_edit_profile);\n" +
+                    "        ButterKnife.bind(this);\n" +
+                    "\n" +
+                    "        if (checkSelfPermission(Manifest.permission.CAMERA)\n" +
+                    "                != PackageManager.PERMISSION_GRANTED) {\n" +
+                    "            requestPermissions(new String[]{Manifest.permission.CAMERA},\n" +
+                    "                    CAMERA_REQUEST_CODE);\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        apiService = ApiClient.getClient().create(ApiInterface.class);\n" +
+                    "\n" +
+                    "        id = getIntent().getIntExtra(\"id\", -1);\n" +
+                    "\n" +
+                    "        ivCamera.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "                clickOnCamera();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        ivCameraBack.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "                clickOnCamera();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        ivBack.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "                onBackPressed();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "        tvClose.setOnClickListener(new View.OnClickListener() {\n" +
+                    "            @Override\n" +
+                    "            public void onClick(View view) {\n" +
+                    "                sendFiles();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {\n" +
+                    "        super.onRequestPermissionsResult(requestCode, permissions, grantResults);\n" +
+                    "\n" +
+                    "        if (requestCode == CAMERA_REQUEST_CODE) {\n" +
+                    "\n" +
+                    "            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {\n" +
+                    "\n" +
+                    "                Toast.makeText(this, \"Camera permission granted.\", Toast.LENGTH_LONG).show();\n" +
+                    "\n" +
+                    "                // Do stuff here for Action Image Capture.\n" +
+                    "\n" +
+                    "            } else {\n" +
+                    "\n" +
+                    "                Toast.makeText(this, \"Camera permission denied.\", Toast.LENGTH_LONG).show();\n" +
+                    "\n" +
+                    "            }\n" +
+                    "\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private void clickOnCamera() {\n" +
+                    "\n" +
+                    "        AlertDialog.Builder builder = new AlertDialog.Builder(EditProfile.this);\n" +
+                    "\n" +
+                    "        builder.setTitle(\"Выберите:\");\n" +
+                    "        builder.setItems(new CharSequence[]{\"Галерея\", \"Камера\", \"Файлы dwnld\"},\n" +
+                    "                new DialogInterface.OnClickListener() {\n" +
+                    "                    @Override\n" +
+                    "                    public void onClick(DialogInterface dialogInterface, int i) {\n" +
+                    "                        switch (i) {\n" +
+                    "                            case 0:\n" +
+                    "                                Intent intent = new Intent();\n" +
+                    "                                intent.setType(\"image/*\");\n" +
+                    "                                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "                                intent.setAction(Intent.ACTION_GET_CONTENT);\n" +
+                    "                                startActivityForResult(Intent.createChooser(intent, \"Select Picture\"), CS_ACTIVITY_CHOOSE_FILE);\n" +
+                    "\n" +
+                    "                                break;\n" +
+                    "                            case 1:\n" +
+                    "                                Intent camera_intent\n" +
+                    "                                        = new Intent(MediaStore\n" +
+                    "                                        .ACTION_IMAGE_CAPTURE);\n" +
+                    "\n" +
+                    "\n" +
+                    "                                startActivityForResult(camera_intent, CS_CAMERA);\n" +
+                    "                                break;\n" +
+                    "\n" +
+                    "                            case 2:\n" +
+                    "                                Intent intent3 = new Intent();\n" +
+                    "                                intent3.setType(\"*/*\");\n" +
+                    "                                intent3.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "                                intent3.setAction(Intent.ACTION_GET_CONTENT);\n" +
+                    "                                startActivityForResult(Intent.createChooser(intent3, \"Select Picture\"), CS_DONWLOADS);\n" +
+                    "                                break;\n" +
+                    "                        }\n" +
+                    "                    }\n" +
+                    "                });\n" +
+                    "\n" +
+                    "        builder.show();\n" +
+                    "\n" +
+                    "//        Intent galleryintent = new Intent(Intent.ACTION_GET_CONTENT, null);\n" +
+                    "//        galleryintent.setType(\"image/*\");\n" +
+                    "//\n" +
+                    "//        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);\n" +
+                    "//\n" +
+                    "//        Intent chooser = new Intent(Intent.ACTION_CHOOSER);\n" +
+                    "//        chooser.putExtra(Intent.EXTRA_INTENT, galleryintent);\n" +
+                    "//        chooser.putExtra(Intent.EXTRA_TITLE, \"Select from:\");\n" +
+                    "//\n" +
+                    "//        Intent[] intentArray = {cameraIntent};\n" +
+                    "//        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);\n" +
+                    "//        chooser.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "//        startActivityForResult(chooser, CS_ACTIVITY_CHOOSE_FILE);\n" +
+                    "\n" +
+                    "//        Intent intent = new Intent();\n" +
+                    "//        intent.setType(\"image/*\");\n" +
+                    "//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "//        intent.setAction(Intent.ACTION_GET_CONTENT);\n" +
+                    "//        startActivityForResult(Intent.createChooser(intent,\"Select Picture\"), CS_ACTIVITY_CHOOSE_FILE);\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private void sendFiles() {\n" +
+                    "\n" +
+                    "\n" +
+                    "        List<MultipartBody.Part> parts = new ArrayList<>();\n" +
+                    "        for (int i = 0; i < fileUris.size(); i++) {\n" +
+                    "            parts.add(prepareFilePart(\"Image\", fileUris.get(i), i));\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        Call<ResponseBody> call = apiService.editProfile(\n" +
+                    "                createPartFromString(etName.getText().toString()),\n" +
+                    "                createPartFromString(etMetro.getText().toString()),\n" +
+                    "                createPartFromString(String.valueOf(id)),\n" +
+                    "                parts);\n" +
+                    "\n" +
+                    "        call.enqueue(new Callback<ResponseBody>() {\n" +
+                    "            @Override\n" +
+                    "            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {\n" +
+                    "                Toast.makeText(getApplicationContext(), \" \" + response.code(), Toast.LENGTH_SHORT).show();\n" +
+                    "                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);\n" +
+                    "                intent.putExtra(\"action\", \"openprofile\");\n" +
+                    "                startActivity(intent);\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            @Override\n" +
+                    "            public void onFailure(Call<ResponseBody> call, Throwable t) {\n" +
+                    "                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();\n" +
+                    "            }\n" +
+                    "        });\n" +
+                    "\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri, int i) {\n" +
+                    "//        create RequestBody instance from file\n" +
+                    "        if (getContentResolver().getType(fileUri) == null)\n" +
+                    "            fileUri = FileProvider.getUriForFile(this, this.getPackageName() + \".provider\",images.get(i));\n" +
+                    "        RequestBody requestFile = RequestBody.create(\n" +
+                    "                MediaType.parse(this.getContentResolver().getType(fileUri)),\n" +
+                    "                images.get(i)\n" +
+                    "        );\n" +
+                    "        // MultipartBody.Part is used to send also the actual file name\n" +
+                    "\n" +
+                    "        return MultipartBody.Part.createFormData(partName, images.get(i).getName(), requestFile);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private RequestBody createPartFromString(String descriptionString) {\n" +
+                    "        return RequestBody.create(MultipartBody.FORM, descriptionString);\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "    @Override\n" +
+                    "    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\n" +
+                    "        super.onActivityResult(requestCode, resultCode, data);\n" +
+                    "\n" +
+                    "        fileUris = new ArrayList<>();\n" +
+                    "        images = new ArrayList<>();\n" +
+                    "        int count = 0;\n" +
+                    "\n" +
+                    "\n" +
+                    "        switch (requestCode) {\n" +
+                    "\n" +
+                    "            case CS_ACTIVITY_CHOOSE_FILE:\n" +
+                    "                if (resultCode == Activity.RESULT_OK\n" +
+                    "                        && data != null) {\n" +
+                    "\n" +
+                    "\n" +
+                    "                    ClipData cd = data.getClipData();\n" +
+                    "\n" +
+                    "\n" +
+                    "                    if (cd == null) { // 1 image\n" +
+                    "                        Uri uri = data.getData();\n" +
+                    "                        fileUris.add(uri);\n" +
+                    "                        count = 1;\n" +
+                    "\n" +
+                    "                    } else { // many images\n" +
+                    "\n" +
+                    "\n" +
+                    "                        for (int i = 0; i < data.getClipData().getItemCount(); i++) {\n" +
+                    "                            uri = data.getClipData().getItemAt(i).getUri();\n" +
+                    "                            fileUris.add(uri);\n" +
+                    "                            count++;\n" +
+                    "                        }\n" +
+                    "                    }\n" +
+                    "\n" +
+                    "                    for (int i = 0; i < count; i++) {\n" +
+                    "\n" +
+                    "                        try {\n" +
+                    "                            File photoFile = null;\n" +
+                    "                            try {\n" +
+                    "                                photoFile = createImageFile();\n" +
+                    "                            } catch (IOException ex) {\n" +
+                    "                                Log.d(\"TAG\", \"Error occurred while creating the file\");\n" +
+                    "                            }\n" +
+                    "\n" +
+                    "                            InputStream inputStream = getContentResolver().openInputStream(fileUris.get(i));\n" +
+                    "                            FileOutputStream fileOutputStream = new FileOutputStream(photoFile);\n" +
+                    "                            // Copying\n" +
+                    "                            copyStream(inputStream, fileOutputStream);\n" +
+                    "                            fileOutputStream.close();\n" +
+                    "                            inputStream.close();\n" +
+                    "\n" +
+                    "                            images.add(photoFile);\n" +
+                    "\n" +
+                    "                        } catch (Exception e) {\n" +
+                    "                            Log.d(\"TAG\", \"onActivityResult: \" + e.toString());\n" +
+                    "                        }\n" +
+                    "                        System.out.println();\n" +
+                    "                    }\n" +
+                    "\n" +
+                    "                    System.out.println();\n" +
+                    "                    if (fileUris.size() >= 1) {\n" +
+                    "                        ivCameraBack.setImageURI(fileUris.get(0));\n" +
+                    "                        ivCamera.setVisibility(View.GONE);\n" +
+                    "                    }\n" +
+                    "\n" +
+                    "\n" +
+                    "                }\n" +
+                    "                break;\n" +
+                    "            case CS_CAMERA:\n" +
+                    "                Bitmap bitmap = (Bitmap) data.getExtras().get(\"data\");\n" +
+                    "                ivCamera.setImageBitmap(bitmap);\n" +
+                    "\n" +
+                    "                File image = saveImage(bitmap);\n" +
+                    "                images = new ArrayList<>();\n" +
+                    "                fileUris = new ArrayList<>();\n" +
+                    "                images.add(image);\n" +
+                    "                fileUris.add(Uri.fromFile(image));\n" +
+                    "\n" +
+                    "                System.out.println();\n" +
+                    "                break;\n" +
+                    "            case CS_DONWLOADS:\n" +
+                    "                if(resultCode == Activity.RESULT_OK && data != null){\n" +
+                    "                    uri = data.getData();\n" +
+                    "                    setOriginalFile(uri);\n" +
+                    "                }\n" +
+                    "                ivCameraBack.setImageURI(uri);\n" +
+                    "                ivCamera.setVisibility(View.GONE);\n" +
+                    "                break;\n" +
+                    "\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    private File createImageFile() throws IOException {\n" +
+                    "        // Create an image file name\n" +
+                    "        String timeStamp = new SimpleDateFormat(\"yyyyMMdd_HHmmss\").format(new Date());\n" +
+                    "        String imageFileName = \"JPEG_\" + timeStamp + \"_\";\n" +
+                    "        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);\n" +
+                    "        File image = File.createTempFile(\n" +
+                    "                imageFileName,  /* prefix */\n" +
+                    "                \".jpg\",         /* suffix */\n" +
+                    "                storageDir      /* directory */\n" +
+                    "        );\n" +
+                    "\n" +
+                    "        // Save a file: path for use with ACTION_VIEW intents\n" +
+                    "        String mCurrentPhotoPath = image.getAbsolutePath();\n" +
+                    "        return image;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public static void copyStream(InputStream input, OutputStream output) throws IOException {\n" +
+                    "        byte[] buffer = new byte[1024];\n" +
+                    "        int bytesRead;\n" +
+                    "        while ((bytesRead = input.read(buffer)) != -1) {\n" +
+                    "            output.write(buffer, 0, bytesRead);\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public File saveImage(Bitmap myBitmap) {\n" +
+                    "        String filename = System.currentTimeMillis() + \".png\";\n" +
+                    "        try {\n" +
+                    "            //create a file to write bitmap data\n" +
+                    "            File f = new File(this.getCacheDir(), filename);\n" +
+                    "            f.createNewFile();\n" +
+                    "\n" +
+                    "//Convert bitmap to byte array\n" +
+                    "            Bitmap bitmap = myBitmap;\n" +
+                    "            ByteArrayOutputStream bos = new ByteArrayOutputStream();\n" +
+                    "            bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);\n" +
+                    "            byte[] bitmapdata = bos.toByteArray();\n" +
+                    "\n" +
+                    "//write the bytes in file\n" +
+                    "            FileOutputStream fos = new FileOutputStream(f);\n" +
+                    "            fos.write(bitmapdata);\n" +
+                    "            fos.flush();\n" +
+                    "            fos.close();\n" +
+                    "            return f;\n" +
+                    "        } catch (Exception e) {\n" +
+                    "            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        return null;\n" +
+                    "\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    public void setOriginalFile(Uri uri)\n" +
+                    "    {\n" +
+                    "        Cursor cursor = getContentResolver().query(uri, null, null, null, null);\n" +
+                    "        try {\n" +
+                    "            if (cursor != null && cursor.moveToFirst()) {\n" +
+                    "                int columnIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);\n" +
+                    "                String fileName = cursor.getString(columnIndex);\n" +
+                    "                String dirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();\n" +
+                    "                String path = dirPath + \"/\" + fileName;\n" +
+                    "                images.add(new File(path));\n" +
+                    "                fileUris.add(Uri.fromFile(images.get(0)));\n" +
+                    "            }\n" +
+                    "        }catch (Exception e){\n" +
+                    "            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();\n" +
+                    "        }\n" +
+                    "        finally {\n" +
+                    "            cursor.close();\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "}\n" +
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n";
         }
         else return "0dp";
     }
