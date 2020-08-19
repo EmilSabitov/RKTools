@@ -2373,7 +2373,7 @@ public class XRKToolsLib {
 
 
 
-            return  "                                                                                                                         \n" +
+            return  "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \n" +
                     "Type emulator’s name\n" +
                     "\n" +
                     "implementation 'com.google.android.material:material:1.1.0'\n" +
@@ -4128,6 +4128,17 @@ public class XRKToolsLib {
                     "        }\n" +
                     "    }\n" +
                     "}\n" +
+                    "  Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);\n" +
+                    "                                getIntent.setType(\"image/*\");\n" +
+                    "                                getIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);\n" +
+                    "\n" +
+                    "                                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);\n" +
+                    "                                pickIntent.setType(\"image/*\");\n" +
+                    "\n" +
+                    "                                Intent chooserIntent = Intent.createChooser(getIntent, \"Select Image\");\n" +
+                    "                                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});\n" +
+                    "\n" +
+                    "                                startActivityForResult(chooserIntent, CS_ACTIVITY_CHOOSE_FILE);" +
                     "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n";
         }
         else return "0dp";
